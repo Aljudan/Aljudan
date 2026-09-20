@@ -1,11 +1,13 @@
 <!-- ═══════════════════════════════════════════════════════ -->
-<!--  ALJUDAN — BLACK & RED ARCADE 🔴 — v8 CLEAN & WORKING   -->
+<!--  ALJUDAN — BLACK & RED ARCADE 🔴 — v9 LOCAL ASSETS      -->
+<!--  Header, typing, dashboard, activity, repo & footer     -->
+<!--  digambar lokal di assets/ (tanpa layanan yg paused)   -->
 <!-- ═══════════════════════════════════════════════════════ -->
 
-<img src="https://capsule-render.vercel.app/api?type=waving&height=220&color=0:000000,30:0a0a0a,70:1a0000,100:330000&text=ALJUDAN&fontColor=ffffff&fontSize=58&fontAlignY=35&animation=fadeIn&desc=▓▓▓%20BLACK%20%26%20RED%20ARCADE%20▓▓▓&descAlignY=55&descSize=12" width="100%"/>
+<img src="assets/header.svg" width="100%" alt="ALJUDAN — Black & Red Arcade"/>
 
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=14&duration=2200&pause=800&color=CC0000&center=true&vCenter=true&width=740&height=30&lines=▶+WELCOME+TO+MY+RED+ARCADE+🔴;Black+%26+Red+•+Bandung%2C+Indonesia+🇮🇩;Play+while+you+learn+🎮;Beautify+till+you+master+it" alt="typing"/>
+  <img src="assets/typing.svg" width="740" alt="typing animation"/>
 </p>
 
 <p align="center">
@@ -160,25 +162,22 @@ TypeScript ████░░░░░░ 40%
 
 <br/>
 
-<!-- ═══════════════ ANALYTICS ═══════════════ -->
+<!-- ═══════════════ ANALYTICS (LOCAL) ═══════════════ -->
 
-### `> analytics` — 📊 LIVE
+### `> analytics` — 📊 LOCAL DASHBOARD
+
+<p align="center"><sub>widget live (<code>github-readme-stats</code>, <code>streak</code>, <code>activity-graph</code>, <code>trophy</code>) lagi paused — diganti dasbor lokal biar profil tetap nyala 🔴</sub></p>
 
 <p align="center">
-  <img height="165" src="https://github-readme-stats.vercel.app/api?username=Aljudan&show_icons=true&hide_border=true&bg_color=00000000&title_color=FF0033&text_color=888888&icon_color=FF0033&ring_color=FF0033&include_all_commits=true&count_private=true" alt="stats"/>
-  <img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Aljudan&layout=compact&hide_border=true&bg_color=00000000&title_color=FF0033&text_color=888888&langs_count=6" alt="top langs"/>
+  <img src="assets/dashboard.svg" width="100%" alt="analytics dashboard"/>
 </p>
 
 <p align="center">
-  <img src="https://streak-stats.demolab.com?user=Aljudan&theme=dark&hide_border=true&background=00000000&ring=FF0033&fire=FF0033&currStreakLabel=FF0033&sideNums=ffffff&currStreakNum=ffffff&dates=666666&sideLabels=888888" alt="streak"/>
+  <img src="assets/activity.svg" width="100%" alt="weekly activity"/>
 </p>
 
 <p align="center">
-  <img width="96%" src="https://github-readme-activity-graph.vercel.app/graph?username=Aljudan&bg_color=00000000&color=666666&line=FF0033&point=FF0033&area=true&hide_border=true" alt="activity graph"/>
-</p>
-
-<p align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=Aljudan&theme=darkhub&no-frame=true&no-bg=true&margin-w=10&row=1&column=6" alt="trophy"/>
+  <img src="assets/trophies.svg" width="100%" alt="arcade trophies"/>
 </p>
 
 <br/>
@@ -189,7 +188,7 @@ TypeScript ████░░░░░░ 40%
 
 <p align="center">
 <a href="https://github.com/Aljudan/Aljudan">
-  <img src="https://github-readme-stats.vercel.app/api/pin/?username=Aljudan&repo=Aljudan&bg_color=00000000&title_color=FF0033&text_color=888888&icon_color=FF0033&hide_border=true" width="55%" alt="Aljudan"/>
+  <img src="assets/repo-aljudan.svg" width="55%" alt="Aljudan"/>
 </a>
 </p>
 
@@ -219,7 +218,7 @@ TypeScript ████░░░░░░ 40%
   </a>
 </p>
 
-<img src="https://capsule-render.vercel.app/api?type=waving&height=120&color=0:330000,50:1a0000,100:000000&section=footer&text=GAME%20OVER%20●%20INSERT%20COIN%20●%20ALJUDAN&fontColor=FF0033&fontSize=13" width="100%"/>
+<img src="assets/footer.svg" width="100%" alt="Game over — insert coin — Aljudan"/>
 
 <p align="center"><sub>© 2026 Aljudan — <i>"Play more, learn more."</i> 🔴🎮</sub></p>
 

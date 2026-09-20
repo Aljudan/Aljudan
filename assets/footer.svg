@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="140" viewBox="0 0 1200 140" role="img" aria-label="Game over — insert coin — Aljudan">
+  <defs>
+    <linearGradient id="ftr-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#330000"/>
+      <stop offset="0.5" stop-color="#1a0000"/>
+      <stop offset="1" stop-color="#000000"/>
+    </linearGradient>
+    <pattern id="ftr-scan" width="4" height="4" patternUnits="userSpaceOnUse">
+      <rect width="4" height="1.2" fill="#ffffff" opacity="0.03"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="140" fill="url(#ftr-bg)"/>
+  <rect width="1200" height="140" fill="url(#ftr-scan)"/>
+
+  <!-- top wave -->
+  <path d="M0,0 L1200,0 L1200,14 C1000,30 880,4 600,16 C320,28 200,4 0,18 Z" fill="#000000" opacity="0.55"/>
+  <rect x="0" y="0" width="1200" height="3" fill="#FF0033"/>
+
+  <!-- main text -->
+  <text x="600" y="72" text-anchor="middle" font-family="monospace" font-size="22" font-weight="bold" letter-spacing="4" fill="#FF4D5E">GAME OVER ● <tspan fill="#ffffff">INSERT COIN<tspan><animate attributeName="opacity" values="1;0.1;1" dur="1.4s" repeatCount="indefinite"/></tspan></tspan> ● ALJUDAN</text>
+
+  <text x="600" y="104" text-anchor="middle" font-family="monospace" font-size="12" letter-spacing="3" fill="#777777">© 2026 ALJUDAN — “PLAY MORE, LEARN MORE.”</text>
+
+  <!-- bottom wave -->
+  <path d="M0,128 C240,116 420,138 600,128 C780,118 960,138 1200,126 L1200,140 L0,140 Z" fill="#FF0033" opacity="0.2"/>
+  <rect x="0" y="137" width="1200" height="3" fill="#FF0033" opacity="0.85"/>
+</svg>

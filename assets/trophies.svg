@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="215" viewBox="0 0 1200 215" role="img" aria-label="Arcade trophies unlocked">
+  <defs>
+    <linearGradient id="tr-card" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#111111"/>
+      <stop offset="1" stop-color="#0a0a0a"/>
+    </linearGradient>
+    <filter id="tr-glow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="4" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect x="4" y="4" width="1192" height="207" rx="18" fill="url(#tr-card)" stroke="#FF0033" stroke-width="2"/>
+  <text x="48" y="44" font-family="monospace" font-size="18" font-weight="bold" letter-spacing="2" fill="#ffffff">ARCADE TROPHIES — UNLOCKED</text>
+  <text x="1152" y="44" text-anchor="end" font-family="monospace" font-size="13" fill="#777777">pengganti layanan trophy yang paused</text>
+  <line x1="48" y1="58" x2="1152" y2="58" stroke="#333333" stroke-width="1"/>
+
+  <g font-family="monospace" text-anchor="middle" filter="url(#tr-glow)">
+    <!-- 1 -->
+    <circle cx="130" cy="118" r="34" fill="#1a1a1a" stroke="#FFD700" stroke-width="3"/>
+    <text x="130" y="130" font-size="30" fill="#FFD700">★</text>
+    <text x="130" y="172" font-size="12.5" font-weight="bold" fill="#cccccc">FIRST PUSH</text>
+    <text x="130" y="190" font-size="11" fill="#666666">day one</text>
+
+    <!-- 2 -->
+    <circle cx="320" cy="118" r="34" fill="#1a1a1a" stroke="#FF0033" stroke-width="3"/>
+    <text x="320" y="130" font-size="28" fill="#FF0033">♥</text>
+    <text x="320" y="172" font-size="12.5" font-weight="bold" fill="#cccccc">PROFILE UP</text>
+    <text x="320" y="190" font-size="11" fill="#666666">readme live</text>
+
+    <!-- 3 -->
+    <circle cx="510" cy="118" r="34" fill="#1a1a1a" stroke="#FF0033" stroke-width="3"/>
+    <text x="510" y="130" font-size="28" fill="#FF4D5E">◆</text>
+    <text x="510" y="172" font-size="12.5" font-weight="bold" fill="#cccccc">ARCADE OPEN</text>
+    <text x="510" y="190" font-size="11" fill="#666666">red mode</text>
+
+    <!-- 4 -->
+    <circle cx="700" cy="118" r="34" fill="#1a1a1a" stroke="#C0C0C0" stroke-width="3"/>
+    <text x="700" y="130" font-size="28" fill="#C0C0C0">▲</text>
+    <text x="700" y="172" font-size="12.5" font-weight="bold" fill="#cccccc">SNAKE FED</text>
+    <text x="700" y="190" font-size="11" fill="#666666">eat commits</text>
+
+    <!-- 5 -->
+    <circle cx="890" cy="118" r="34" fill="#1a1a1a" stroke="#FFE600" stroke-width="3"/>
+    <text x="890" y="130" font-size="30" fill="#FFE600">●</text>
+    <text x="890" y="172" font-size="12.5" font-weight="bold" fill="#cccccc">PAC-MAN RUN</text>
+    <text x="890" y="190" font-size="11" fill="#666666">eat dots</text>
+
+    <!-- 6 -->
+    <circle cx="1080" cy="118" r="34" fill="#1a1a1a" stroke="#FF0033" stroke-width="3"/>
+    <text x="1080" y="130" font-size="28" fill="#FF0033">♦</text>
+    <text x="1080" y="172" font-size="12.5" font-weight="bold" fill="#cccccc">LVL 01</text>
+    <text x="1080" y="190" font-size="11" fill="#666666">to be cont.</text>
+  </g>
+</svg>
