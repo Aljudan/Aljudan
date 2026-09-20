@@ -38,7 +38,7 @@ const aljudan = {
   name: "Aljudan",
   location: "Bandung, ID 🇮🇩",
   role: "Learner • Gamer • Explorer",
-  repos: ["belajar-erp", "trifting", "belajar"],
+  repos: ["Aljudan", "...more coming soon"],
   mode: "Black & Red Arcade 🔴",
   motto: "Beautify till you master it",
 };
@@ -185,34 +185,18 @@ TypeScript ████░░░░░░ 40%
 
 <!-- ═══════════════ SHOWCASE ═══════════════ -->
 
-### `> showcase` — 📌 REPO ASLI
+### `> showcase` — 📌 FEATURED
 
-<table width="100%">
-<tr>
-<td width="50%">
-<a href="https://github.com/Aljudan/belajar-erp">
-  <img src="https://github-readme-stats.vercel.app/api/pin/?username=Aljudan&repo=belajar-erp&bg_color=00000000&title_color=FF0033&text_color=888888&icon_color=FF0033&hide_border=true" width="100%" alt="belajar-erp"/>
-</a>
-</td>
-<td width="50%">
-<a href="https://github.com/Aljudan/trifting">
-  <img src="https://github-readme-stats.vercel.app/api/pin/?username=Aljudan&repo=trifting&bg_color=00000000&title_color=FF0033&text_color=888888&icon_color=FF0033&hide_border=true" width="100%" alt="trifting"/>
-</a>
-</td>
-</tr>
-<tr>
-<td width="50%">
+<p align="center">
 <a href="https://github.com/Aljudan/Aljudan">
-  <img src="https://github-readme-stats.vercel.app/api/pin/?username=Aljudan&repo=Aljudan&bg_color=00000000&title_color=FF0033&text_color=888888&icon_color=FF0033&hide_border=true" width="100%" alt="Aljudan"/>
+  <img src="https://github-readme-stats.vercel.app/api/pin/?username=Aljudan&repo=Aljudan&bg_color=00000000&title_color=FF0033&text_color=888888&icon_color=FF0033&hide_border=true" width="55%" alt="Aljudan"/>
 </a>
-</td>
-<td width="50%">
-<a href="https://github.com/Aljudan/belajar">
-  <img src="https://github-readme-stats.vercel.app/api/pin/?username=Aljudan&repo=belajar&bg_color=00000000&title_color=FF0033&text_color=888888&icon_color=FF0033&hide_border=true" width="100%" alt="belajar"/>
-</a>
-</td>
-</tr>
-</table>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/🔒_repo_lain-masih_di_lab_rahasia-330000?style=for-the-badge&labelColor=000000" alt="private repos"/>
+  <br/><sub>repo lainnya masih private — <i>coming soon</i> 🔴</sub>
+</p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/▓▓▓_CONTINUE_%3F_▓▓▓-YES_▶-FF0033?style=for-the-badge&labelColor=000000" alt="continue"/>
