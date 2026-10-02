@@ -2,118 +2,116 @@
 
 # `ALJUDAN`
 
-### `Web Developer • Security Learner • Linux Enthusiast`
+### Web Developer · Cyber Security Learner
 
-<img src="https://capsule-render.vercel.app/api?type=rect&color=0d1117&height=2&section=header" width="100%">
+<p>
+  <a href="https://github.com/Aljudan">
+    <img src="https://img.shields.io/badge/GitHub-Aljudan-181717?style=flat-square&logo=github" alt="GitHub">
+  </a>
+  <img src="https://img.shields.io/badge/Linux-Learning-FCC624?style=flat-square&logo=linux&logoColor=black" alt="Linux">
+  <img src="https://img.shields.io/badge/Cyber%20Security-Learning-ff3b3b?style=flat-square&logo=hackthebox&logoColor=white" alt="Cyber Security">
+</p>
 
-`BUILD` • `BREAK` • `LEARN` • `REPEAT`
+<br>
+
+```text
+BUILD  •  BREAK  •  LEARN  •  REPEAT
+```
 
 </div>
 
 ---
 
-## `> whoami`
+## `whoami`
 
-```js
-const aljudan = {
-  name: "Aljudan",
-  location: "Bandung, Indonesia 🇮🇩",
+I'm **Aljudan**, a developer from Indonesia who is currently building a stronger foundation in **web development, Linux, networking, and cybersecurity**.
 
-  focus: [
-    "Web Development",
-    "Cyber Security"
-  ],
-
-  currently_learning: [
-    "JavaScript",
-    "TypeScript",
-    "PHP",
-    "SQL",
-    "Networking",
-    "Linux"
-  ],
-
-  interests: [
-    "Backend Development",
-    "System Security",
-    "CTF & Security Labs",
-    "Open Source"
-  ],
-
-  philosophy: "Learn by building, break things safely, understand why."
-};
-```
-
-I'm a developer in the process of building stronger fundamentals in **web development and cybersecurity**.
-
-Most of my learning happens through hands-on projects, Linux environments, programming exercises, and legal security labs.
-
----
-
-## `> current_focus`
-
-```text
-[ WEB DEVELOPMENT ]
-
-  ├── Frontend fundamentals
-  ├── Backend development
-  ├── Database design
-  └── Building real-world applications
-
-
-[ CYBER SECURITY ]
-
-  ├── Linux & system fundamentals
-  ├── Networking
-  ├── Web security
-  ├── CTF / legal security labs
-  └── Understanding vulnerabilities
-
-
-[ ENGINEERING ]
-
-  ├── Git & GitHub
-  ├── Debugging
-  ├── Project structure
-  └── Learning through implementation
-```
-
----
-
-## `> projects`
-
-### 🔴 ERP — Offline-First Business System
-
-A web-based ERP project focused on an **offline-first architecture**.
+I prefer learning by actually building things, breaking them in controlled environments, and understanding how they work underneath.
 
 ```text
 Focus
-├── Multi-tenant application
-├── Database design
-├── Authentication & authorization
-├── Row Level Security
-├── Offline data
-└── Data synchronization
+├── Web Development
+├── Backend Development
+├── Linux & Networking
+└── Cyber Security
 ```
 
-→ [View repository](https://github.com/Aljudan/erp-powersync)
+---
+
+## `currently_learning`
+
+<table>
+<tr>
+<td width="50%" valign="top">
+
+### Web Development
+
+* JavaScript
+* TypeScript
+* PHP
+* SQL
+* Backend Development
+* Database Fundamentals
+
+</td>
+
+<td width="50%" valign="top">
+
+### Cyber Security
+
+* Linux
+* TCP/IP
+* HTTP / HTTPS
+* DNS
+* Web Security
+* CTF & Security Labs
+
+</td>
+</tr>
+</table>
+
+---
+
+## `featured_projects`
+
+### 🔴 ERP — Offline-First
+
+A web-based ERP application focused on **offline-first architecture**, multi-tenant systems, and data synchronization.
+
+**Focus**
+
+```text
+Authentication
+Multi-Tenant Architecture
+Row Level Security
+Database Design
+Offline Data
+Data Synchronization
+```
+
+<a href="https://github.com/Aljudan/erp-powersync">
+  <img src="https://img.shields.io/badge/View%20Repository-ERP%20Offline--First-ff3b3b?style=flat-square&logo=github" alt="ERP Repository">
+</a>
 
 ---
 
 ### 🔴 PeminjamanAlat
 
-Equipment rental management application built while learning backend and database development.
+A web application for managing equipment rentals and borrowing.
+
+**Focus**
 
 ```text
-Focus
-├── CRUD
-├── Authentication
-├── Database relationships
-├── Rental management
-└── Web application fundamentals
+CRUD
+Authentication
+Database Relationships
+Rental Management
+Web Application Fundamentals
 ```
 
-→ [View repository](https://github.com/Aljudan/PeminjamanAlat)
+<a href="https://github.com/Aljudan/PeminjamanAlat">
+  <img src="https://img.shields.io/badge/View%20Repository-PeminjamanAlat-ff3b3b?style=flat-square&logo=github" alt="PeminjamanAlat Repository">
+</a>
 
 ---
 
@@ -121,79 +119,64 @@ Focus
 
 A collection of notes, exercises, and experiments from legal cybersecurity learning environments.
 
-```text
-Focus
-├── Linux
-├── Networking
-├── Enumeration
-├── Web security
-├── CTF
-└── Vulnerability analysis
-```
-
-More labs and write-ups will be added as I progress.
-
----
-
-## `> learning_stack`
-
-### Languages
+**Focus**
 
 ```text
-JavaScript    ██████████
-TypeScript    ██████████
-PHP           ██████████
-SQL           ██████████
-HTML / CSS    ██████████
-```
-
-### Tools & Environment
-
-```text
-Git / GitHub
 Linux
-Docker
-PostgreSQL
-Supabase
-VS Code
-Wireshark
-Burp Suite
+Networking
+Enumeration
+Web Security
+CTF
+Vulnerability Analysis
 ```
-
-> The list above represents technologies and tools I am actively learning or using in projects, not a claim of mastery.
 
 ---
 
-## `> security_lab`
+## `tools`
+
+<p align="left">
+
+<img src="https://skillicons.dev/icons?i=linux,git,github,vscode,php,js,ts,html,css,postgres,supabase,docker&perline=6" alt="Tools and technologies">
+
+</p>
+
+> Technologies shown here are tools I use or am currently learning — not claims of mastery.
+
+---
+
+## `security`
 
 ```text
-┌─────────────────────────────────────────────┐
-│              SECURITY LAB                   │
-├─────────────────────────────────────────────┤
+┌─ SECURITY LAB ──────────────────────────────┐
 │                                             │
 │  $ whoami                                   │
 │  aljudan                                    │
 │                                             │
-│  $ cat /etc/motd                            │
-│  Learn the system before attacking it.     │
+│  $ cat focus.txt                            │
 │                                             │
-│  $ nmap --help                              │
-│  Learn enumeration.                         │
+│  Linux                                      │
+│  Networking                                 │
+│  Web Security                               │
+│  Enumeration                                │
+│  CTF                                        │
 │                                             │
-│  $ ./exploit                                │
-│  Only against systems you are authorized   │
+│  $ ./rules                                  │
+│                                             │
+│  Learn. Test. Understand.                  │
+│                                             │
+│  Only attack systems you are authorized    │
 │  to test.                                   │
 │                                             │
 └─────────────────────────────────────────────┘
 ```
 
-My cybersecurity learning is focused on **legal labs and controlled environments**.
+My cybersecurity practice is focused on **CTFs, legal labs, and systems I am authorized to test**.
 
-Current areas of study:
+### Current Security Topics
 
 * Linux fundamentals
-* TCP/IP & networking
-* HTTP/HTTPS
+* TCP/IP networking
+* HTTP / HTTPS
 * DNS
 * Enumeration
 * Web vulnerabilities
@@ -201,85 +184,88 @@ Current areas of study:
 * SQL injection fundamentals
 * XSS fundamentals
 * CTF methodology
-* Basic exploit development concepts
+* Basic exploitation concepts
 
 ---
 
-## `> arcade_zone`
+## `learning_path`
 
-Still keeping the arcade side of the profile alive. 🎮
-
-### 🐍 Snake
-
-![Snake](https://raw.githubusercontent.com/Aljudan/Aljudan/output/snake.svg)
-
-### 👻 Pac-Man
-
-![Pac-Man](https://raw.githubusercontent.com/Aljudan/Aljudan/output/pacman-contribution-graph.svg)
-
-> These animations are generated from GitHub contribution activity.
+```text
+                    WEB DEVELOPMENT
+                           │
+             ┌─────────────┼─────────────┐
+             │             │             │
+          HTML/CSS    JavaScript     TypeScript
+             │             │             │
+             └─────────────┼─────────────┘
+                           │
+                           ▼
+                    BACKEND DEVELOPMENT
+                           │
+                           ├── PHP
+                           ├── APIs
+                           └── Databases
+                                  │
+                                  ▼
+                         SYSTEM FUNDAMENTALS
+                                  │
+                         ┌────────┼────────┐
+                         │        │        │
+                       Linux  Networking   OS
+                         │        │        │
+                         └────────┼────────┘
+                                  │
+                                  ▼
+                           CYBER SECURITY
+                                  │
+                    ┌─────────────┼─────────────┐
+                    │             │             │
+                Web Security  Enumeration      CTF
+                    │             │             │
+                    └─────────────┼─────────────┘
+                                  │
+                                  ▼
+                            EXPLOITATION
+```
 
 ---
 
-## `> github_activity`
-
-<div align="center">
-
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=Aljudan\&show_icons=true\&theme=dark\&hide_border=true\&bg_color=0d1117\&title_color=ff3b3b\&icon_color=ff3b3b)
-
-![GitHub Streak](https://streak-stats.demolab.com?user=Aljudan\&theme=dark\&hide_border=true\&background=0d1117)
-
-</div>
-
----
-
-## `> currently_building`
+## `currently_building`
 
 ```text
 [01] Improve web development fundamentals
 [02] Build more complete applications
-[03] Learn networking properly
+[03] Understand networking properly
 [04] Practice cybersecurity through legal labs
 [05] Document what I learn
+[06] Improve Linux and system administration skills
 ```
 
 ---
 
-## `> roadmap`
-
-```text
-WEB DEVELOPMENT
-      │
-      ├── HTML / CSS
-      ├── JavaScript
-      ├── TypeScript
-      ├── Backend
-      └── Databases
-             │
-             ▼
-       SYSTEM FUNDAMENTALS
-             │
-             ├── Linux
-             ├── Networking
-             └── Operating Systems
-                    │
-                    ▼
-          CYBER SECURITY
-                    │
-                    ├── Web Security
-                    ├── Enumeration
-                    ├── CTF
-                    ├── Exploitation
-                    └── Defense
-```
-
----
-
-## `> connect`
+## `github`
 
 <div align="center">
 
-[![GitHub](https://img.shields.io/badge/GitHub-Aljudan-181717?style=for-the-badge\&logo=github)](https://github.com/Aljudan)
+<a href="https://github.com/Aljudan?tab=repositories">
+  <img src="https://img.shields.io/badge/Repositories-8-0d1117?style=for-the-badge&logo=github&logoColor=white" alt="Repositories">
+</a>
+
+<a href="https://github.com/Aljudan?tab=stars">
+  <img src="https://img.shields.io/badge/Stars-Explore-0d1117?style=for-the-badge&logo=github&logoColor=white" alt="Stars">
+</a>
+
+</div>
+
+---
+
+## `arcade`
+
+<div align="center">
+
+### 🐍 Snake
+
+<img src="https://raw.githubusercontent.com/Aljudan/Aljudan/output/snake.svg" alt="Snake animation">
 
 </div>
 
@@ -288,16 +274,23 @@ WEB DEVELOPMENT
 <div align="center">
 
 ```text
-╔══════════════════════════════════════════════╗
-║                                              ║
-║       BUILD SOMETHING. BREAK SOMETHING.      ║
-║              UNDERSTAND WHY.                 ║
-║                                              ║
-╚══════════════════════════════════════════════╝
+┌─────────────────────────────────────────────┐
+│                                             │
+│       BUILD SOMETHING.                     │
+│       BREAK SOMETHING.                     │
+│       UNDERSTAND WHY.                      │
+│                                             │
+└─────────────────────────────────────────────┘
 ```
 
 ### `> system.exit()`
 
 **Learn by building. Learn by breaking. Learn by understanding.**
+
+<br>
+
+<a href="https://github.com/Aljudan">
+  <img src="https://img.shields.io/badge/Follow-Aljudan-ff3b3b?style=for-the-badge&logo=github" alt="Follow Aljudan">
+</a>
 
 </div>
