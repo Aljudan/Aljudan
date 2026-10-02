@@ -1,709 +1,682 @@
 ```svg
-<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <defs>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 700" width="1600" height="700">
 
-    <!-- Background -->
-    <linearGradient id="bg" x1="0" y1="0" x2="1600" y2="900">
-      <stop offset="0" stop-color="#020202"/>
-      <stop offset="0.55" stop-color="#080101"/>
-      <stop offset="1" stop-color="#020202"/>
-    </linearGradient>
+<defs>
 
-    <!-- Crimson glow -->
-    <radialGradient id="redGlow">
-      <stop offset="0" stop-color="#C00000" stop-opacity=".32"/>
-      <stop offset=".45" stop-color="#700000" stop-opacity=".12"/>
-      <stop offset="1" stop-color="#000000" stop-opacity="0"/>
-    </radialGradient>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0%" stop-color="#030303"/>
+    <stop offset="55%" stop-color="#080202"/>
+    <stop offset="100%" stop-color="#020202"/>
+  </linearGradient>
 
-    <!-- Horizon glow -->
-    <linearGradient id="horizon" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#3D0000" stop-opacity="0"/>
-      <stop offset=".5" stop-color="#C00000" stop-opacity=".75"/>
-      <stop offset="1" stop-color="#3D0000" stop-opacity="0"/>
-    </linearGradient>
+  <radialGradient id="redGlow">
+    <stop offset="0%" stop-color="#d00000" stop-opacity=".30"/>
+    <stop offset="45%" stop-color="#800000" stop-opacity=".12"/>
+    <stop offset="100%" stop-color="#000" stop-opacity="0"/>
+  </radialGradient>
 
-    <!-- Text glow -->
-    <filter id="textGlow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="8" result="blur"/>
-      <feMerge>
-        <feMergeNode in="blur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
+  <linearGradient id="redLine">
+    <stop offset="0%" stop-color="#3d0000" stop-opacity="0"/>
+    <stop offset="50%" stop-color="#d00000"/>
+    <stop offset="100%" stop-color="#3d0000" stop-opacity="0"/>
+  </linearGradient>
 
-    <!-- Strong glow -->
-    <filter id="glow" x="-100%" y="-100%" width="300%" height="300%">
-      <feGaussianBlur stdDeviation="12" result="blur"/>
-      <feMerge>
-        <feMergeNode in="blur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
+  <pattern id="grid" width="70" height="70" patternUnits="userSpaceOnUse">
+    <path d="M70 0H0V70" fill="none" stroke="#8b0000" stroke-opacity=".10"/>
+  </pattern>
 
-    <!-- Scanlines -->
-    <pattern id="scanlines" width="1600" height="8" patternUnits="userSpaceOnUse">
-      <rect width="1600" height="4" fill="#FFFFFF" opacity=".025"/>
-      <rect y="4" width="1600" height="4" fill="#000000" opacity=".22"/>
-    </pattern>
+  <pattern id="scan" width="1600" height="8" patternUnits="userSpaceOnUse">
+    <rect width="1600" height="3" fill="#fff" opacity=".025"/>
+    <rect y="4" width="1600" height="4" fill="#000" opacity=".30"/>
+  </pattern>
 
-    <!-- Grid -->
-    <pattern id="grid" width="80" height="80" patternUnits="userSpaceOnUse">
-      <path d="M80 0H0V80" stroke="#8B0000" stroke-opacity=".13"/>
-    </pattern>
+  <filter id="glow">
+    <feGaussianBlur stdDeviation="8" result="b"/>
+    <feMerge>
+      <feMergeNode in="b"/>
+      <feMergeNode in="SourceGraphic"/>
+    </feMerge>
+  </filter>
 
-    <!-- Vignette -->
-    <radialGradient id="vignette">
-      <stop offset=".35" stop-color="#000" stop-opacity="0"/>
-      <stop offset=".78" stop-color="#000" stop-opacity=".32"/>
-      <stop offset="1" stop-color="#000" stop-opacity=".92"/>
-    </radialGradient>
+  <filter id="strongGlow">
+    <feGaussianBlur stdDeviation="18" result="b"/>
+    <feMerge>
+      <feMergeNode in="b"/>
+      <feMergeNode in="SourceGraphic"/>
+    </feMerge>
+  </filter>
 
-    <!-- Clip for glitch slices -->
-    <clipPath id="slice1">
-      <rect x="0" y="330" width="1600" height="38"/>
-    </clipPath>
+  <style>
 
-    <clipPath id="slice2">
-      <rect x="0" y="470" width="1600" height="26"/>
-    </clipPath>
+    .mono {
+      font-family: "Courier New", monospace;
+    }
 
-    <style>
-      .mono {
-        font-family: "Courier New", monospace;
+    .title {
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 900;
+      letter-spacing: 22px;
+    }
+
+    @keyframes pulse {
+      0%,100% { opacity:.25; }
+      50% { opacity:1; }
+    }
+
+    @keyframes scan {
+      from { transform:translateY(-700px); }
+      to { transform:translateY(700px); }
+    }
+
+    @keyframes glitch {
+      0%,88%,100% { transform:translate(0); }
+      90% { transform:translate(-7px,2px); }
+      92% { transform:translate(6px,-2px); }
+      94% { transform:translate(-3px,0); }
+    }
+
+    @keyframes float {
+      0%,100% { transform:translateY(0); }
+      50% { transform:translateY(-8px); }
+    }
+
+    @keyframes flicker {
+      0%,18%,22%,65%,67%,100% { opacity:1; }
+      20%,66% { opacity:.35; }
+    }
+
+    @keyframes particle {
+      from {
+        transform:translateY(30px);
+        opacity:0;
       }
-
-      .title {
-        font-family: "Arial Black", "Arial", sans-serif;
-        font-weight: 900;
-        letter-spacing: 18px;
+      40% { opacity:1; }
+      to {
+        transform:translateY(-120px);
+        opacity:0;
       }
+    }
 
-      .small {
-        font-family: "Courier New", monospace;
-        font-size: 15px;
-        letter-spacing: 4px;
-      }
+    .pulse {
+      animation:pulse 1.5s infinite;
+    }
 
-      .red {
-        fill: #C00000;
-      }
+    .scan {
+      animation:scan 8s linear infinite;
+    }
 
-      .soft-red {
-        fill: #8B0000;
-      }
+    .glitch {
+      animation:glitch 4s infinite;
+    }
 
-      .white {
-        fill: #F2F2F2;
-      }
+    .float {
+      animation:float 4s ease-in-out infinite;
+    }
 
-      .dim {
-        fill: #666;
-      }
+    .flicker {
+      animation:flicker 5s infinite;
+    }
 
-      @keyframes pulse {
-        0%, 100% { opacity: .35; }
-        50% { opacity: 1; }
-      }
+    .particle {
+      animation:particle 4s linear infinite;
+    }
 
-      @keyframes scan {
-        0% { transform: translateY(-900px); }
-        100% { transform: translateY(900px); }
-      }
+  </style>
 
-      @keyframes flicker {
-        0%, 18%, 22%, 63%, 64%, 65%, 100% { opacity: 1; }
-        20%, 62% { opacity: .45; }
-      }
-
-      @keyframes glitch {
-        0%, 90%, 100% {
-          transform: translate(0);
-        }
-        91% {
-          transform: translate(-8px, 2px);
-        }
-        92% {
-          transform: translate(7px, -2px);
-        }
-        93% {
-          transform: translate(-4px, 0);
-        }
-        94% {
-          transform: translate(0);
-        }
-      }
-
-      @keyframes drift {
-        0% { transform: translateX(0); }
-        50% { transform: translateX(18px); }
-        100% { transform: translateX(0); }
-      }
-
-      @keyframes blink {
-        0%, 45%, 100% { opacity: 1; }
-        46%, 55% { opacity: .15; }
-      }
-
-      .pulse {
-        animation: pulse 1.8s ease-in-out infinite;
-      }
-
-      .scan {
-        animation: scan 7s linear infinite;
-      }
-
-      .flicker {
-        animation: flicker 5s infinite;
-      }
-
-      .glitch {
-        animation: glitch 4s infinite;
-      }
-
-      .drift {
-        animation: drift 5s ease-in-out infinite;
-      }
-
-      .blink {
-        animation: blink 1.4s infinite;
-      }
-    </style>
-  </defs>
+</defs>
 
 
-  <!-- ===================================================== -->
-  <!-- BACKGROUND -->
-  <!-- ===================================================== -->
+<!-- ====================================================== -->
+<!-- BACKGROUND -->
+<!-- ====================================================== -->
 
-  <rect width="1600" height="900" fill="url(#bg)"/>
+<rect width="1600" height="700" fill="url(#bg)"/>
 
+<ellipse
+  cx="1120"
+  cy="350"
+  rx="520"
+  ry="420"
+  fill="url(#redGlow)"
+/>
+
+<rect width="1600" height="700" fill="url(#grid)"/>
+
+
+<!-- ====================================================== -->
+<!-- DISTANT CITY -->
+<!-- ====================================================== -->
+
+<g fill="#050303" opacity=".75">
+
+  <path d="
+    M0 510
+    L80 510 L80 420
+    L150 420 L150 470
+    L220 470 L220 350
+    L285 350 L285 500
+    L350 500 L350 400
+    L430 400 L430 455
+    L500 455 L500 330
+    L570 330 L570 500
+    L640 500 L640 380
+    L720 380 L720 460
+    L800 460 L800 340
+    L870 340 L870 490
+    L950 490 L950 400
+    L1030 400 L1030 455
+    L1110 455 L1110 300
+    L1180 300 L1180 490
+    L1260 490 L1260 360
+    L1340 360 L1340 450
+    L1420 450 L1420 320
+    L1490 320 L1490 470
+    L1600 470
+    L1600 700
+    L0 700 Z
+  "/>
+
+</g>
+
+
+<!-- distant red lights -->
+
+<g fill="#c00000">
+
+  <rect x="165" y="445" width="3" height="18" class="pulse"/>
+  <rect x="235" y="375" width="3" height="25" class="pulse"/>
+  <rect x="515" y="355" width="3" height="20" class="pulse"/>
+  <rect x="735" y="405" width="3" height="16" class="pulse"/>
+  <rect x="1125" y="325" width="3" height="26" class="pulse"/>
+  <rect x="1280" y="390" width="3" height="22" class="pulse"/>
+  <rect x="1440" y="350" width="3" height="30" class="pulse"/>
+
+</g>
+
+
+<!-- ====================================================== -->
+<!-- HORIZON -->
+<!-- ====================================================== -->
+
+<rect
+  x="100"
+  y="520"
+  width="1400"
+  height="2"
+  fill="url(#redLine)"
+  filter="url(#glow)"
+/>
+
+
+<!-- ====================================================== -->
+<!-- HUD CORNERS -->
+<!-- ====================================================== -->
+
+<g stroke="#8b0000" stroke-width="2" fill="none">
+
+  <path d="M40 110V40H110"/>
+  <path d="M1490 40H1560V110"/>
+
+  <path d="M40 590V660H110"/>
+  <path d="M1490 660H1560V590"/>
+
+</g>
+
+
+<!-- ====================================================== -->
+<!-- TOP HUD -->
+<!-- ====================================================== -->
+
+<g class="mono">
+
+  <circle
+    cx="70"
+    cy="70"
+    r="5"
+    fill="#c00000"
+    class="pulse"
+  />
+
+  <text
+    x="88"
+    y="76"
+    fill="#c00000"
+    font-size="14"
+    letter-spacing="4"
+  >
+    SYSTEM ONLINE
+  </text>
+
+  <text
+    x="88"
+    y="98"
+    fill="#555"
+    font-size="11"
+    letter-spacing="3"
+  >
+    ALJUDAN // VOID NETWORK
+  </text>
+
+
+  <text
+    x="1310"
+    y="70"
+    fill="#555"
+    font-size="11"
+    letter-spacing="3"
+  >
+    SEC_LEVEL
+  </text>
+
+  <text
+    x="1435"
+    y="70"
+    fill="#c00000"
+    font-size="11"
+    letter-spacing="3"
+  >
+    RED
+  </text>
+
+  <text
+    x="1310"
+    y="94"
+    fill="#555"
+    font-size="11"
+    letter-spacing="3"
+  >
+    SIGNAL
+  </text>
+
+  <text
+    x="1395"
+    y="94"
+    fill="#c00000"
+    font-size="11"
+    letter-spacing="3"
+  >
+    0x404
+  </text>
+
+</g>
+
+
+<!-- ====================================================== -->
+<!-- CENTRAL LABEL -->
+<!-- ====================================================== -->
+
+<g class="mono">
+
+  <rect
+    x="610"
+    y="205"
+    width="380"
+    height="38"
+    fill="#100000"
+    stroke="#720000"
+  />
+
+  <circle
+    cx="635"
+    cy="224"
+    r="4"
+    fill="#c00000"
+    class="pulse"
+  />
+
+  <text
+    x="654"
+    y="230"
+    fill="#e04444"
+    font-size="14"
+    letter-spacing="4"
+  >
+    404 // ENTER THE VOID
+  </text>
+
+</g>
+
+
+<!-- ====================================================== -->
+<!-- MAIN TITLE -->
+<!-- ====================================================== -->
+
+<g class="glitch">
+
+  <!-- red ghost -->
+  <text
+    x="800"
+    y="390"
+    text-anchor="middle"
+    class="title"
+    font-size="108"
+    fill="#8b0000"
+    opacity=".8"
+    transform="translate(-8 0)"
+  >
+    ALJUDAN
+  </text>
+
+  <!-- main -->
+  <text
+    x="800"
+    y="390"
+    text-anchor="middle"
+    class="title"
+    font-size="108"
+    fill="#f5f5f5"
+    filter="url(#glow)"
+  >
+    ALJUDAN
+  </text>
+
+  <!-- red offset -->
+  <text
+    x="800"
+    y="390"
+    text-anchor="middle"
+    class="title"
+    font-size="108"
+    fill="none"
+    stroke="#c00000"
+    stroke-width="2"
+    opacity=".8"
+    transform="translate(7 0)"
+  >
+    ALJUDAN
+  </text>
+
+</g>
+
+
+<!-- glitch bars -->
+
+<g class="flicker">
+
+  <rect
+    x="525"
+    y="335"
+    width="170"
+    height="5"
+    fill="#c00000"
+    opacity=".65"
+  />
+
+  <rect
+    x="920"
+    y="410"
+    width="145"
+    height="4"
+    fill="#c00000"
+    opacity=".6"
+  />
+
+</g>
+
+
+<!-- ====================================================== -->
+<!-- SUBTITLE -->
+<!-- ====================================================== -->
+
+<g class="mono">
+
+  <line
+    x1="530"
+    y1="430"
+    x2="700"
+    y2="430"
+    stroke="#c00000"
+    stroke-width="2"
+  />
+
+  <text
+    x="720"
+    y="435"
+    fill="#777"
+    font-size="13"
+    letter-spacing="4"
+  >
+    DIGITAL FRONTIER // ONLINE
+  </text>
+
+  <line
+    x1="1080"
+    y1="430"
+    x2="1250"
+    y2="430"
+    stroke="#c00000"
+    stroke-width="2"
+  />
+
+</g>
+
+
+<!-- ====================================================== -->
+<!-- ANIME / CYBER SILHOUETTE -->
+<!-- ====================================================== -->
+
+<g class="float">
+
+  <!-- glow -->
   <ellipse
-    cx="1160"
-    cy="430"
-    rx="520"
-    ry="430"
+    cx="1260"
+    cy="505"
+    rx="170"
+    ry="190"
     fill="url(#redGlow)"
   />
 
-  <rect width="1600" height="900" fill="url(#grid)"/>
+  <!-- coat -->
+  <path
+    d="
+      M1220 410
+      C1170 455 1145 520 1110 625
+      L1195 600
+      L1230 665
+      L1290 665
+      L1325 600
+      L1410 625
+      C1375 520 1350 455 1300 410
+      Z
+    "
+    fill="#030303"
+    stroke="#8b0000"
+    stroke-width="3"
+  />
 
+  <!-- torso -->
+  <path
+    d="
+      M1215 420
+      L1305 420
+      L1340 590
+      L1180 590
+      Z
+    "
+    fill="#070707"
+    stroke="#c00000"
+    stroke-opacity=".5"
+    stroke-width="2"
+  />
 
-  <!-- ===================================================== -->
-  <!-- DISTANT CITY -->
-  <!-- ===================================================== -->
+  <!-- head -->
+  <circle
+    cx="1260"
+    cy="365"
+    r="54"
+    fill="#030303"
+    stroke="#c00000"
+    stroke-width="3"
+  />
 
-  <g opacity=".45">
-    <path
-      d="
-        M0 620
-        L90 620 L90 500
-        L150 500 L150 560
-        L220 560 L220 440
-        L280 440 L280 590
-        L350 590 L350 470
-        L420 470 L420 550
-        L480 550 L480 390
-        L540 390 L540 600
-        L610 600 L610 510
-        L680 510 L680 570
-        L740 570 L740 430
-        L810 430 L810 590
-        L880 590 L880 470
-        L940 470 L940 550
-        L1010 550 L1010 400
-        L1080 400 L1080 580
-        L1150 580 L1150 450
-        L1220 450 L1220 520
-        L1300 520 L1300 360
-        L1370 360 L1370 560
-        L1450 560 L1450 430
-        L1520 430 L1520 520
-        L1600 520
-        L1600 900
-        L0 900 Z"
-      fill="#050303"
-    />
+  <!-- spiky hair -->
+  <path
+    d="
+      M1208 370
+      L1175 345
+      L1202 337
+      L1180 305
+      L1220 316
+      L1240 278
+      L1260 310
+      L1290 278
+      L1295 315
+      L1335 300
+      L1310 337
+      L1342 355
+      L1305 370
+      Z
+    "
+    fill="#020202"
+    stroke="#c00000"
+    stroke-width="2"
+  />
 
-    <g fill="#C00000" opacity=".5">
-      <rect x="135" y="525" width="4" height="22"/>
-      <rect x="238" y="468" width="4" height="18"/>
-      <rect x="495" y="420" width="4" height="30"/>
-      <rect x="695" y="535" width="4" height="16"/>
-      <rect x="825" y="465" width="4" height="28"/>
-      <rect x="1028" y="435" width="4" height="22"/>
-      <rect x="1318" y="395" width="4" height="35"/>
-      <rect x="1472" y="465" width="4" height="24"/>
-    </g>
-  </g>
+  <!-- face shadow -->
+  <path
+    d="
+      M1215 365
+      Q1260 392 1305 365
+      Q1290 420 1260 423
+      Q1230 420 1215 365
+    "
+    fill="#010101"
+  />
 
-
-  <!-- ===================================================== -->
-  <!-- HORIZON -->
-  <!-- ===================================================== -->
-
+  <!-- eyes -->
   <rect
-    x="0"
-    y="625"
-    width="1600"
-    height="2"
-    fill="url(#horizon)"
-    filter="url(#glow)"
+    x="1228"
+    y="365"
+    width="20"
+    height="4"
+    rx="2"
+    fill="#ff2222"
+    filter="url(#strongGlow)"
+    class="pulse"
   />
 
   <rect
-    x="200"
-    y="630"
-    width="1200"
-    height="1"
-    fill="#C00000"
-    opacity=".25"
+    x="1272"
+    y="365"
+    width="20"
+    height="4"
+    rx="2"
+    fill="#ff2222"
+    filter="url(#strongGlow)"
+    class="pulse"
   />
 
-
-  <!-- ===================================================== -->
-  <!-- HUD FRAME -->
-  <!-- ===================================================== -->
-
-  <g stroke="#8B0000" stroke-width="2" opacity=".8">
-
-    <path d="M45 120V45H120"/>
-    <path d="M1480 45H1555V120"/>
-
-    <path d="M45 780V855H120"/>
-    <path d="M1480 855H1555V780"/>
-
-  </g>
-
-  <g stroke="#C00000" opacity=".45">
-    <path d="M45 160H180"/>
-    <path d="M1420 160H1555"/>
-    <path d="M45 740H180"/>
-    <path d="M1420 740H1555"/>
-  </g>
-
-
-  <!-- ===================================================== -->
-  <!-- TOP HUD -->
-  <!-- ===================================================== -->
-
-  <g class="mono small">
-
-    <circle cx="72" cy="78" r="5" fill="#C00000" class="blink"/>
-
-    <text x="90" y="84" fill="#C00000">
-      SYSTEM OVERRIDE
-    </text>
-
-    <text x="90" y="105" fill="#555">
-      ALJUDAN // ONLINE
-    </text>
-
-
-    <text x="1320" y="78" fill="#555">
-      SEC_LEVEL:
-    </text>
-
-    <text x="1435" y="78" fill="#C00000">
-      RED
-    </text>
-
-    <text x="1320" y="105" fill="#555">
-      NET:
-    </text>
-
-    <text x="1365" y="105" fill="#C00000">
-      VOID
-    </text>
-
-  </g>
-
-
-  <!-- ===================================================== -->
-  <!-- CENTRAL LABEL -->
-  <!-- ===================================================== -->
-
-  <g class="mono">
-
-    <rect
-      x="575"
-      y="245"
-      width="450"
-      height="42"
-      fill="#120000"
-      stroke="#8B0000"
-      stroke-opacity=".7"
-    />
-
-    <circle cx="602" cy="266" r="4" fill="#C00000" class="pulse"/>
-
-    <text
-      x="620"
-      y="272"
-      font-size="17"
-      letter-spacing="5"
-      fill="#D33"
-    >
-      404 // ENTER THE VOID
-    </text>
-
-  </g>
-
-
-  <!-- ===================================================== -->
-  <!-- MAIN TITLE -->
-  <!-- ===================================================== -->
-
-  <g class="glitch">
-
-    <!-- red ghost -->
-    <text
-      x="800"
-      y="435"
-      text-anchor="middle"
-      class="title"
-      font-size="126"
-      fill="#8B0000"
-      opacity=".75"
-      transform="translate(-8 0)"
-    >
-      ALJUDAN
-    </text>
-
-    <!-- main -->
-    <text
-      x="800"
-      y="435"
-      text-anchor="middle"
-      class="title"
-      font-size="126"
-      fill="#F5F5F5"
-      filter="url(#textGlow)"
-    >
-      ALJUDAN
-    </text>
-
-    <!-- crimson offset -->
-    <text
-      x="800"
-      y="435"
-      text-anchor="middle"
-      class="title"
-      font-size="126"
-      fill="none"
-      stroke="#C00000"
-      stroke-width="2"
-      opacity=".75"
-      transform="translate(7 0)"
-    >
-      ALJUDAN
-    </text>
-
-  </g>
-
-
-  <!-- ===================================================== -->
-  <!-- GLITCH SLICES -->
-  <!-- ===================================================== -->
-
-  <g clip-path="url(#slice1)" opacity=".65">
-    <text
-      x="800"
-      y="435"
-      text-anchor="middle"
-      class="title"
-      font-size="126"
-      fill="#C00000"
-      transform="translate(18 0)"
-    >
-      ALJUDAN
-    </text>
-  </g>
-
-  <g clip-path="url(#slice2)" opacity=".45">
-    <text
-      x="800"
-      y="435"
-      text-anchor="middle"
-      class="title"
-      font-size="126"
-      fill="#FFFFFF"
-      transform="translate(-15 0)"
-    >
-      ALJUDAN
-    </text>
-  </g>
-
-
-  <!-- ===================================================== -->
-  <!-- SUBTITLE -->
-  <!-- ===================================================== -->
-
-  <g class="mono">
-
-    <rect
-      x="535"
-      y="475"
-      width="530"
-      height="44"
-      fill="#050505"
-      stroke="#3D0000"
-    />
-
-    <rect
-      x="535"
-      y="475"
-      width="3"
-      height="44"
-      fill="#C00000"
-    />
-
-    <text
-      x="560"
-      y="503"
-      font-size="15"
-      letter-spacing="3"
-      fill="#888"
-    >
-      DIGITAL FRONTIER // SYSTEM ONLINE
-    </text>
-
-  </g>
-
-
-  <!-- ===================================================== -->
-  <!-- CHARACTER SILHOUETTE -->
-  <!-- ===================================================== -->
-
-  <g class="drift" opacity=".9">
-
-    <!-- aura -->
-    <ellipse
-      cx="1260"
-      cy="630"
-      rx="190"
-      ry="220"
-      fill="url(#redGlow)"
-    />
-
-    <!-- coat -->
-    <path
-      d="
-        M1235 470
-        C1180 500 1150 570 1120 700
-        L1200 675
-        L1240 760
-        L1280 760
-        L1320 675
-        L1400 700
-        C1370 570 1340 500 1285 470
-        Z"
-      fill="#050505"
-      stroke="#8B0000"
-      stroke-width="3"
-    />
-
-    <!-- torso -->
-    <path
-      d="
-        M1215 475
-        L1305 475
-        L1340 660
-        L1180 660
-        Z"
-      fill="#080808"
-      stroke="#C00000"
-      stroke-opacity=".6"
-      stroke-width="2"
-    />
-
-    <!-- head -->
-    <circle
-      cx="1260"
-      cy="420"
-      r="58"
-      fill="#050505"
-      stroke="#C00000"
-      stroke-width="3"
-    />
-
-    <!-- hair -->
-    <path
-      d="
-        M1205 420
-        L1175 390
-        L1200 380
-        L1180 350
-        L1220 360
-        L1240 325
-        L1260 355
-        L1290 325
-        L1295 360
-        L1335 345
-        L1310 380
-        L1340 400
-        L1305 420
-        Z"
-      fill="#020202"
-      stroke="#C00000"
-      stroke-width="2"
-    />
-
-    <!-- face shadow -->
-    <path
-      d="
-        M1215 420
-        Q1260 445 1305 420
-        Q1290 475 1260 478
-        Q1230 475 1215 420
-      "
-      fill="#020202"
-    />
-
-    <!-- eye glow -->
-    <rect
-      x="1228"
-      y="420"
-      width="22"
-      height="4"
-      rx="2"
-      fill="#FF2222"
-      filter="url(#glow)"
-      class="pulse"
-    />
-
-    <rect
-      x="1270"
-      y="420"
-      width="22"
-      height="4"
-      rx="2"
-      fill="#FF2222"
-      filter="url(#glow)"
-      class="pulse"
-    />
-
-    <!-- coat highlights -->
-    <path
-      d="M1210 485L1165 650"
-      stroke="#FF2222"
-      stroke-width="2"
-      opacity=".8"
-    />
-
-    <path
-      d="M1310 485L1355 650"
-      stroke="#FF2222"
-      stroke-width="2"
-      opacity=".8"
-    />
-
-  </g>
-
-
-  <!-- ===================================================== -->
-  <!-- PARTICLES -->
-  <!-- ===================================================== -->
-
-  <g fill="#C00000">
-
-    <circle cx="280" cy="650" r="2" class="pulse"/>
-    <circle cx="360" cy="560" r="1.5" class="pulse"/>
-    <circle cx="440" cy="700" r="2" class="pulse"/>
-    <circle cx="510" cy="590" r="1" class="pulse"/>
-    <circle cx="620" cy="680" r="2" class="pulse"/>
-    <circle cx="720" cy="570" r="1.5" class="pulse"/>
-    <circle cx="850" cy="680" r="1.5" class="pulse"/>
-    <circle cx="940" cy="590" r="2" class="pulse"/>
-    <circle cx="1040" cy="690" r="1" class="pulse"/>
-    <circle cx="1120" cy="550" r="2" class="pulse"/>
-    <circle cx="1390" cy="650" r="1.5" class="pulse"/>
-    <circle cx="1470" cy="580" r="2" class="pulse"/>
-
-  </g>
-
-
-  <!-- ===================================================== -->
-  <!-- SCANLINE -->
-  <!-- ===================================================== -->
-
-  <rect
-    x="0"
-    y="-900"
-    width="1600"
-    height="900"
-    fill="url(#scanlines)"
-    class="scan"
-    opacity=".5"
+  <!-- coat highlights -->
+  <path
+    d="M1210 425L1165 610"
+    stroke="#ff2222"
+    stroke-width="2"
   />
 
+  <path
+    d="M1310 425L1355 610"
+    stroke="#ff2222"
+    stroke-width="2"
+  />
 
-  <!-- ===================================================== -->
-  <!-- BOTTOM HUD -->
-  <!-- ===================================================== -->
-
-  <g class="mono">
-
-    <text
-      x="60"
-      y="805"
-      font-size="14"
-      letter-spacing="3"
-      fill="#555"
-    >
-      SYS.LOC // RED_SEAS_ABYSS
-    </text>
-
-    <text
-      x="60"
-      y="830"
-      font-size="12"
-      letter-spacing="2"
-      fill="#8B0000"
-    >
-      ENGINE v4.0.4
-    </text>
+</g>
 
 
-    <text
-      x="1240"
-      y="805"
-      font-size="14"
-      letter-spacing="3"
-      fill="#555"
-    >
-      CONNECTION
-    </text>
+<!-- ====================================================== -->
+<!-- PARTICLES -->
+<!-- ====================================================== -->
 
-    <text
-      x="1240"
-      y="830"
-      font-size="12"
-      letter-spacing="2"
-      fill="#C00000"
-    >
-      ESTABLISHED
-    </text>
+<g fill="#c00000">
 
-  </g>
+  <circle cx="260" cy="560" r="2" class="particle"/>
+  <circle cx="340" cy="610" r="1.5" class="particle"/>
+  <circle cx="450" cy="535" r="2" class="particle"/>
+  <circle cx="560" cy="610" r="1.5" class="particle"/>
+  <circle cx="680" cy="550" r="2" class="particle"/>
+  <circle cx="850" cy="590" r="1.5" class="particle"/>
+  <circle cx="960" cy="540" r="2" class="particle"/>
+  <circle cx="1070" cy="600" r="1.5" class="particle"/>
+  <circle cx="1390" cy="555" r="2" class="particle"/>
+  <circle cx="1470" cy="610" r="1.5" class="particle"/>
+
+</g>
 
 
-  <!-- status bars -->
+<!-- ====================================================== -->
+<!-- SCANLINES -->
+<!-- ====================================================== -->
 
-  <g>
-    <rect x="720" y="810" width="22" height="8" fill="#C00000"/>
-    <rect x="748" y="810" width="22" height="8" fill="#8B0000"/>
-    <rect x="776" y="810" width="22" height="8" fill="#3D0000"/>
-    <rect x="804" y="810" width="22" height="8" fill="#222"/>
-    <rect x="832" y="810" width="22" height="8" fill="#151515"/>
-  </g>
+<rect
+  x="0"
+  y="-700"
+  width="1600"
+  height="700"
+  fill="url(#scan)"
+  opacity=".55"
+  class="scan"
+/>
 
 
-  <!-- ===================================================== -->
-  <!-- VIGNETTE -->
-  <!-- ===================================================== -->
+<!-- ====================================================== -->
+<!-- BOTTOM HUD -->
+<!-- ====================================================== -->
 
-  <rect width="1600" height="900" fill="url(#vignette)"/>
+<g class="mono">
+
+  <text
+    x="60"
+    y="620"
+    fill="#555"
+    font-size="11"
+    letter-spacing="3"
+  >
+    SYS.LOC // RED_SECTOR
+  </text>
+
+  <text
+    x="60"
+    y="642"
+    fill="#8b0000"
+    font-size="10"
+    letter-spacing="3"
+  >
+    CONNECTION ESTABLISHED
+  </text>
+
+
+  <text
+    x="1350"
+    y="620"
+    fill="#555"
+    font-size="11"
+    letter-spacing="3"
+  >
+    ACCESS
+  </text>
+
+  <text
+    x="1350"
+    y="642"
+    fill="#c00000"
+    font-size="10"
+    letter-spacing="3"
+  >
+    GRANTED
+  </text>
+
+</g>
+
+
+<!-- status indicator -->
+
+<g>
+  <rect x="735" y="625" width="20" height="6" fill="#c00000"/>
+  <rect x="760" y="625" width="20" height="6" fill="#8b0000"/>
+  <rect x="785" y="625" width="20" height="6" fill="#3d0000"/>
+  <rect x="810" y="625" width="20" height="6" fill="#222"/>
+  <rect x="835" y="625" width="20" height="6" fill="#151515"/>
+</g>
+
 
 </svg>
 ```
