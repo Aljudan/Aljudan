@@ -1,69 +1,54 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1500">
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="3600" viewBox="0 0 1800 3600">
   <defs>
+    <!-- BACKGROUND -->
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#050505"/>
+      <stop offset="45%" stop-color="#090909"/>
+      <stop offset="100%" stop-color="#020202"/>
+    </linearGradient>
 
 ```
-<!-- ================= BACKGROUND ================= -->
-
-<radialGradient id="background" cx="50%" cy="35%" r="75%">
-  <stop offset="0" stop-color="#160007"/>
-  <stop offset=".35" stop-color="#090003"/>
-  <stop offset="1" stop-color="#010101"/>
+<radialGradient id="redGlow">
+  <stop offset="0%" stop-color="#ff2020" stop-opacity=".5"/>
+  <stop offset="45%" stop-color="#a00000" stop-opacity=".18"/>
+  <stop offset="100%" stop-color="#000" stop-opacity="0"/>
 </radialGradient>
 
-<radialGradient id="redAura">
-  <stop offset="0" stop-color="#ff003c" stop-opacity=".22"/>
-  <stop offset=".45" stop-color="#ff003c" stop-opacity=".07"/>
-  <stop offset="1" stop-color="#ff003c" stop-opacity="0"/>
+<radialGradient id="sunGlow">
+  <stop offset="0%" stop-color="#ffd36a" stop-opacity=".9"/>
+  <stop offset="40%" stop-color="#ff7a18" stop-opacity=".35"/>
+  <stop offset="100%" stop-color="#ff2200" stop-opacity="0"/>
 </radialGradient>
 
-<linearGradient id="redLine" x1="0" y1="0" x2="1" y2="0">
-  <stop offset="0" stop-color="#55000f" stop-opacity="0"/>
-  <stop offset=".5" stop-color="#ff003c"/>
-  <stop offset="1" stop-color="#55000f" stop-opacity="0"/>
+<linearGradient id="ocean" x1="0" y1="0" x2="0" y2="1">
+  <stop offset="0%" stop-color="#171717"/>
+  <stop offset="100%" stop-color="#020202"/>
 </linearGradient>
 
-<linearGradient id="card" x1="0" y1="0" x2="1" y2="1">
-  <stop offset="0" stop-color="#120207"/>
-  <stop offset=".5" stop-color="#070104"/>
-  <stop offset="1" stop-color="#100106"/>
+<linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+  <stop offset="0%" stop-color="#fff1a6"/>
+  <stop offset="45%" stop-color="#d9a52d"/>
+  <stop offset="100%" stop-color="#6e4300"/>
 </linearGradient>
 
-<!-- ================= GRID ================= -->
+<linearGradient id="red" x1="0" y1="0" x2="1" y2="0">
+  <stop offset="0%" stop-color="#5b0000"/>
+  <stop offset="50%" stop-color="#ff2020"/>
+  <stop offset="100%" stop-color="#650000"/>
+</linearGradient>
 
-<pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-  <path
-    d="M40 0H0V40"
-    fill="none"
-    stroke="#ff003c"
-    stroke-opacity=".055"
-  />
+<!-- GRID -->
+<pattern id="grid" width="90" height="90" patternUnits="userSpaceOnUse">
+  <path d="M90 0H0V90" fill="none" stroke="#7d0000" stroke-width="1" opacity=".18"/>
 </pattern>
 
-<pattern id="smallGrid" width="10" height="10" patternUnits="userSpaceOnUse">
-  <path
-    d="M10 0H0V10"
-    fill="none"
-    stroke="#ff003c"
-    stroke-opacity=".025"
-  />
+<pattern id="smallGrid" width="30" height="30" patternUnits="userSpaceOnUse">
+  <path d="M30 0H0V30" fill="none" stroke="#ff2222" stroke-width=".5" opacity=".08"/>
 </pattern>
 
-<pattern id="scanlines" width="1" height="8" patternUnits="userSpaceOnUse">
-  <rect width="1" height="3" fill="#ffffff" opacity=".025"/>
-</pattern>
-
-<!-- ================= GLOW ================= -->
-
+<!-- FILTERS -->
 <filter id="glow">
-  <feGaussianBlur stdDeviation="5" result="blur"/>
-  <feMerge>
-    <feMergeNode in="blur"/>
-    <feMergeNode in="SourceGraphic"/>
-  </feMerge>
-</filter>
-
-<filter id="strongGlow">
-  <feGaussianBlur stdDeviation="12" result="blur"/>
+  <feGaussianBlur stdDeviation="7" result="blur"/>
   <feMerge>
     <feMergeNode in="blur"/>
     <feMergeNode in="SourceGraphic"/>
@@ -71,12 +56,80 @@
 </filter>
 
 <filter id="softGlow">
-  <feGaussianBlur stdDeviation="35"/>
+  <feGaussianBlur stdDeviation="18"/>
 </filter>
 
-<!-- ================= ANIMATION ================= -->
+<filter id="shadow">
+  <feGaussianBlur in="SourceAlpha" stdDeviation="10"/>
+  <feOffset dy="8"/>
+  <feComponentTransfer>
+    <feFuncA type="linear" slope=".5"/>
+  </feComponentTransfer>
+  <feMerge>
+    <feMergeNode/>
+    <feMergeNode in="SourceGraphic"/>
+  </feMerge>
+</filter>
 
+<!-- CLIPS -->
+<clipPath id="frameClip">
+  <rect x="60" y="60" width="1680" height="3480" rx="20"/>
+</clipPath>
+
+<clipPath id="oceanClip">
+  <rect x="60" y="850" width="1680" height="500"/>
+</clipPath>
+
+<!-- ANIMATIONS -->
 <style>
+  .mono {
+    font-family: monospace;
+    letter-spacing: 4px;
+  }
+
+  .title {
+    font-family: monospace;
+    font-weight: 900;
+    letter-spacing: 12px;
+  }
+
+  .goldText {
+    fill: #e4b638;
+  }
+
+  .redText {
+    fill: #ff3030;
+  }
+
+  .whiteText {
+    fill: #eeeeee;
+  }
+
+  .line {
+    fill: none;
+    stroke: #a50000;
+    stroke-width: 3;
+  }
+
+  .thin {
+    fill: none;
+    stroke: #d00000;
+    stroke-width: 1.5;
+  }
+
+  .goldLine {
+    fill: none;
+    stroke: #d9a52d;
+    stroke-width: 2;
+  }
+
+  .panel {
+    fill: rgba(0,0,0,.7);
+    fill-opacity: .75;
+    stroke: #7d0000;
+    stroke-width: 2;
+  }
+
   .spin {
     transform-box: fill-box;
     transform-origin: center;
@@ -86,1063 +139,1066 @@
   .reverseSpin {
     transform-box: fill-box;
     transform-origin: center;
-    animation: spin 11s linear infinite reverse;
+    animation: spin 28s linear infinite reverse;
   }
 
   .pulse {
     animation: pulse 2.5s ease-in-out infinite;
   }
 
-  .fastPulse {
-    animation: pulse 1.1s ease-in-out infinite;
-  }
-
   .blink {
-    animation: blink 1.4s steps(2,end) infinite;
+    animation: blink 1.1s steps(2,end) infinite;
   }
 
   .flicker {
-    animation: flicker 3s steps(2,end) infinite;
+    animation: flicker 4s infinite;
   }
 
   .float {
-    animation: float 4s ease-in-out infinite;
+    animation: float 5s ease-in-out infinite;
+  }
+
+  .wave {
+    animation: wave 7s ease-in-out infinite;
   }
 
   .scan {
-    animation: scan 6s linear infinite;
+    animation: scan 5s linear infinite;
   }
 
   .cursor {
-    animation: blink 1s steps(2,end) infinite;
+    animation: cursor 1s steps(2,end) infinite;
   }
 
   @keyframes spin {
-    to {
-      transform: rotate(360deg);
-    }
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
   }
 
   @keyframes pulse {
-    0%,100% {
-      opacity: 1;
-    }
-    50% {
-      opacity: .4;
-    }
+    0%,100% { opacity:.35; }
+    50% { opacity:1; }
   }
 
   @keyframes blink {
-    50% {
-      opacity: .12;
-    }
+    0%,45% { opacity:1; }
+    46%,100% { opacity:.15; }
   }
 
   @keyframes flicker {
-    0%,100% {
-      opacity: 1;
-    }
-    48% {
-      opacity: .75;
-    }
-    50% {
-      opacity: .2;
-    }
-    52% {
-      opacity: .9;
-    }
+    0%,93%,100% { opacity:1; }
+    94% { opacity:.35; }
+    96% { opacity:.8; }
+    97% { opacity:.2; }
   }
 
   @keyframes float {
-    0%,100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-7px);
-    }
+    0%,100% { transform:translateY(0); }
+    50% { transform:translateY(-14px); }
+  }
+
+  @keyframes wave {
+    0%,100% { transform:translateX(0); }
+    50% { transform:translateX(-35px); }
   }
 
   @keyframes scan {
-    from {
-      transform: translateY(-1500px);
-    }
-    to {
-      transform: translateY(1500px);
-    }
+    0% { transform:translateY(-400px); }
+    100% { transform:translateY(3600px); }
   }
 
-  text {
-    font-family: monospace;
-    letter-spacing: 2px;
+  @keyframes cursor {
+    0%,49% { opacity:1; }
+    50%,100% { opacity:0; }
   }
 </style>
 ```
 
   </defs>
 
-  <!-- ================================================= -->
+  <!-- ========================================================= -->
 
-  <!--                     BACKGROUND                    -->
+  <!-- MASTER BACKGROUND -->
 
-  <!-- ================================================= -->
+  <!-- ========================================================= -->
 
-  <rect width="1600" height="1500" fill="url(#background)"/>
+  <rect width="1800" height="3600" fill="url(#bg)"/>
 
-  <rect width="1600" height="1500" fill="url(#grid)"/>
+  <rect width="1800" height="3600" fill="url(#grid)"/>
+  <rect width="1800" height="3600" fill="url(#smallGrid)"/>
 
-  <rect width="1600" height="1500" fill="url(#smallGrid)" opacity=".4"/>
+  <ellipse cx="900" cy="720" rx="850" ry="650" fill="url(#redGlow)" opacity=".65"/>
+  <ellipse cx="900" cy="1250" rx="700" ry="450" fill="url(#sunGlow)" opacity=".3"/>
 
-<ellipse
- cx="800"
- cy="430"
- rx="600"
- ry="450"
- fill="url(#redAura)"
- filter="url(#softGlow)"
-/>
+  <!-- ========================================================= -->
 
-  <!-- ambient red lights -->
+  <!-- OUTER FRAME -->
 
-<circle
- cx="250"
- cy="450"
- r="250"
- fill="#ff003c"
- opacity=".035"
- filter="url(#softGlow)"
-/>
-
-<circle
- cx="1350"
- cy="780"
- r="300"
- fill="#ff003c"
- opacity=".04"
- filter="url(#softGlow)"
-/>
-
-  <!-- ================================================= -->
-
-  <!--                 MASTER FRAME                      -->
-
-  <!-- ================================================= -->
+  <!-- ========================================================= -->
 
 <rect
- x="18"
- y="18"
- width="1564"
- height="1464"
+ x="60"
+ y="60"
+ width="1680"
+ height="3480"
+ rx="20"
  fill="none"
- stroke="#ff003c"
- stroke-opacity=".5"
+ stroke="#8e0000"
+ stroke-width="4"
 />
 
 <rect
- x="35"
- y="35"
- width="1530"
- height="1430"
+ x="76"
+ y="76"
+ width="1648"
+ height="3448"
+ rx="14"
  fill="none"
- stroke="#ff003c"
- stroke-opacity=".12"
-/>
-
-  <!-- corner HUD -->
-
-<path
- d="
-   M18 120V18H120
-   M1480 18H1582V120
-   M18 1380V1482H120
-   M1480 1482H1582V1380
- "
- fill="none"
- stroke="#ff003c"
- stroke-width="3"
-/>
-
-  <!-- ================================================= -->
-
-  <!--                    TOP HUD                        -->
-
-  <!-- ================================================= -->
-
-<text
-x="65"
-y="72"
-fill="#ff003c"
-font-size="15"
-font-weight="bold"
-
->
-
-```
-ALJUDAN // VOID_INTERFACE
-```
-
-  </text>
-
-<text
-x="1535"
-y="72"
-text-anchor="end"
-fill="#555"
-font-size="11"
-
->
-
-```
-SYSTEM_ID: 404-NULL
-```
-
-  </text>
-
-<line
- x1="65"
- y1="95"
- x2="1535"
- y2="95"
- stroke="url(#redLine)"
+ stroke="#320000"
  stroke-width="2"
 />
 
-<text
-x="65"
-y="125"
-fill="#555"
-font-size="10"
+  <!-- CORNERS -->
 
->
+  <g stroke="#ff2424" stroke-width="5" fill="none">
+    <path d="M60 180V60H180"/>
+    <path d="M1620 60H1740V180"/>
+    <path d="M60 3420V3540H180"/>
+    <path d="M1620 3540H1740V3420"/>
+  </g>
 
-```
-CONNECTION
-```
+  <g stroke="#d8a42c" stroke-width="2" fill="none">
+    <path d="M60 280H125"/>
+    <path d="M1675 280H1740"/>
+    <path d="M60 3320H125"/>
+    <path d="M1675 3320H1740"/>
+  </g>
 
-  </text>
+  <!-- ========================================================= -->
 
-<text
-x="170"
-y="125"
-fill="#ff003c"
-font-size="10"
-class="blink"
+  <!-- HEADER -->
 
->
+  <!-- ========================================================= -->
 
-```
-● ONLINE
-```
-
-  </text>
-
-<text
-x="800"
-y="125"
-text-anchor="middle"
-fill="#444"
-font-size="10"
-
->
-
-```
-─────────────── THE VOID GATE ───────────────
-```
-
-  </text>
-
-<text
-x="1535"
-y="125"
-text-anchor="end"
-fill="#555"
-font-size="10"
-
->
-
-```
-TRACE: ACTIVE
-```
-
-  </text>
-
-  <!-- ================================================= -->
-
-  <!--                  MAIN TITLE                       -->
-
-  <!-- ================================================= -->
-
-  <g transform="translate(800 260)">
+  <g transform="translate(110 120)">
+    <text class="mono redText" font-size="25">
+      ALJUDAN // GRAND LINE INTERFACE
+    </text>
 
 ```
 <text
   x="0"
-  y="0"
-  text-anchor="middle"
-  fill="#ff003c"
-  font-size="13"
-  class="flicker"
->
-  404 // ENTER THE VOID
-</text>
-
-<!-- glitch shadow -->
-
-<text
-  x="-5"
-  y="95"
-  text-anchor="middle"
-  fill="#ff003c"
-  opacity=".45"
-  font-size="94"
-  font-weight="bold"
->
-  ALJUDAN
-</text>
-
-<text
-  x="5"
-  y="95"
-  text-anchor="middle"
-  fill="#8a0020"
-  opacity=".35"
-  font-size="94"
-  font-weight="bold"
->
-  ALJUDAN
+  y="50"
+  class="mono whiteText"
+  font-size="15"
+  opacity=".55">
+  SYSTEM_ID: 404-GRAND-LINE
 </text>
 
 <text
   x="0"
-  y="95"
-  text-anchor="middle"
-  fill="#f2f2f2"
-  font-size="94"
-  font-weight="bold"
-  letter-spacing="12"
->
-  ALJUDAN
+  y="78"
+  class="mono goldText"
+  font-size="14">
+  NAVIGATION STATUS: UNKNOWN
 </text>
 
-<line
-  x1="-360"
-  y1="125"
-  x2="360"
-  y2="125"
-  stroke="url(#redLine)"
-  stroke-width="2"
-/>
+<circle
+  cx="1540"
+  cy="8"
+  r="8"
+  fill="#ff2222"
+  class="pulse"/>
 
 <text
-  x="0"
-  y="155"
-  text-anchor="middle"
-  fill="#666"
-  font-size="10"
->
-  ARCHITECT OF DIGITAL ANARCHY // NAVIGATING THE UNKNOWN
+  x="1570"
+  y="14"
+  class="mono redText"
+  font-size="14">
+  LIVE
 </text>
 ```
 
   </g>
 
-  <!-- ================================================= -->
+  <!-- ========================================================= -->
 
-  <!--              CONNECTOR NETWORK                   -->
+  <!-- MAIN TITLE -->
 
-  <!-- ================================================= -->
+  <!-- ========================================================= -->
 
-<g
-fill="none"
-stroke="#ff003c"
-stroke-opacity=".25"
-
->
+  <g text-anchor="middle">
 
 ```
-<path d="M800 345V405"/>
+<text
+  x="900"
+  y="300"
+  class="title redText flicker"
+  font-size="95">
+  404
+</text>
 
-<path d="M800 405H300V475"/>
+<text
+  x="900"
+  y="400"
+  class="title whiteText"
+  font-size="70">
+  ENTER THE
+</text>
 
-<path d="M800 405H1300V475"/>
+<text
+  x="900"
+  y="505"
+  class="title goldText"
+  font-size="105"
+  filter="url(#glow)">
+  GRAND LINE
+</text>
 
-<path d="M300 710V785H800"/>
-
-<path d="M1300 710V785H800"/>
-
-<path d="M800 785V845"/>
-
-<path d="M800 1210V1280"/>
+<text
+  x="900"
+  y="555"
+  class="mono whiteText"
+  font-size="18"
+  opacity=".55">
+  WHERE THE SEA ENDS — AND THE LEGEND BEGINS
+</text>
 ```
 
   </g>
 
-  <g fill="#ff003c">
-    <circle cx="800" cy="405" r="4" class="pulse"/>
-    <circle cx="300" cy="475" r="4" class="pulse"/>
-    <circle cx="1300" cy="475" r="4" class="pulse"/>
-    <circle cx="800" cy="785" r="4" class="pulse"/>
-    <circle cx="800" cy="845" r="4" class="pulse"/>
-    <circle cx="800" cy="1280" r="4" class="pulse"/>
-  </g>
+  <!-- ========================================================= -->
 
-  <!-- ================================================= -->
+  <!-- DECORATIVE CIRCUITS -->
 
-  <!--                   LEFT RADAR                      -->
+  <!-- ========================================================= -->
 
-  <!-- ================================================= -->
-
-  <g transform="translate(300 590)">
+  <g class="thin" opacity=".7">
+    <path d="M180 650H500L560 710H740"/>
+    <path d="M1620 650H1300L1240 710H1060"/>
 
 ```
-<rect
-  x="-215"
-  y="-115"
-  width="430"
-  height="240"
-  rx="2"
-  fill="url(#card)"
-  stroke="#ff003c"
-  stroke-opacity=".4"
-/>
+<path d="M130 760H380L430 810"/>
+<path d="M1670 760H1420L1370 810"/>
 
-<text
-  x="-185"
-  y="-80"
-  fill="#555"
-  font-size="10"
->
-  SENSOR_ARRAY // 01
-</text>
+<path d="M900 570V760"/>
+```
 
-<text
-  x="185"
-  y="-80"
-  text-anchor="end"
-  fill="#ff003c"
-  font-size="9"
-  class="blink"
->
-  SCANNING
-</text>
+  </g>
 
-<g transform="translate(0 10)">
+  <g fill="#ff2020" class="blink">
+    <circle cx="500" cy="650" r="5"/>
+    <circle cx="1300" cy="650" r="5"/>
+    <circle cx="380" cy="760" r="5"/>
+    <circle cx="1420" cy="760" r="5"/>
+  </g>
 
-  <circle
-    r="75"
-    fill="none"
-    stroke="#ff003c"
-    stroke-opacity=".18"
-  />
+  <!-- ========================================================= -->
 
-  <circle
-    r="52"
-    fill="none"
-    stroke="#ff003c"
-    stroke-opacity=".25"
-  />
+  <!-- SUN / SKY -->
 
-  <circle
-    r="28"
-    fill="none"
-    stroke="#ff003c"
-    stroke-opacity=".35"
-  />
+  <!-- ========================================================= -->
 
-  <path
-    d="M-75 0H75M0-75V75"
-    stroke="#ff003c"
-    stroke-opacity=".18"
-  />
+  <g clip-path="url(#frameClip)">
 
-  <path
-    d="M0 0L62-40"
-    stroke="#ff003c"
-    stroke-width="2"
-    filter="url(#glow)"
-    class="spin"
-  />
+```
+<circle
+  cx="900"
+  cy="940"
+  r="270"
+  fill="url(#sunGlow)"
+  class="pulse"/>
 
-  <circle
-    cx="20"
-    cy="-28"
-    r="4"
-    fill="#ff003c"
-    class="blink"
-  />
+<circle
+  cx="900"
+  cy="940"
+  r="180"
+  fill="#ffb52b"
+  opacity=".15"/>
 
-  <circle
-    cx="-35"
-    cy="22"
-    r="3"
-    fill="#ff003c"
-    class="blink"
-  />
+<!-- CLOUDS -->
 
-  <circle
-    r="6"
-    fill="#ff003c"
-    filter="url(#glow)"
-  />
+<g fill="#151515" opacity=".9" class="wave">
+
+  <path d="
+    M80 960
+    C170 900 230 920 270 960
+    C330 890 450 910 500 980
+    C420 1020 250 1030 80 1010Z"/>
+
+  <path d="
+    M1280 950
+    C1360 880 1450 910 1480 960
+    C1540 900 1660 910 1730 990
+    L1730 1040
+    L1280 1030Z"/>
 
 </g>
 
-<text
-  x="-185"
-  y="100"
-  fill="#666"
-  font-size="9"
->
-  TARGET: UNKNOWN
-</text>
+<!-- DISTANT ISLANDS -->
 
-<text
-  x="185"
-  y="100"
-  text-anchor="end"
-  fill="#ff003c"
-  font-size="9"
->
-  SIGNAL 98.4%
-</text>
+<path
+  d="M60 1120
+     C250 1080 340 1100 470 1060
+     C580 1020 650 1070 760 1040
+     C870 1010 980 1060 1100 1030
+     C1240 1000 1330 1070 1450 1040
+     C1560 1010 1650 1050 1740 1030
+     L1740 1350
+     L60 1350Z"
+  fill="#090909"
+  stroke="#3b0000"
+  stroke-width="3"/>
 ```
 
   </g>
 
-  <!-- ================================================= -->
+  <!-- ========================================================= -->
 
-  <!--                 RIGHT STATUS                     -->
+  <!-- OCEAN -->
 
-  <!-- ================================================= -->
+  <!-- ========================================================= -->
 
-  <g transform="translate(1300 590)">
+  <g clip-path="url(#oceanClip)">
 
 ```
 <rect
-  x="-215"
-  y="-115"
-  width="430"
-  height="240"
-  fill="url(#card)"
-  stroke="#ff003c"
-  stroke-opacity=".4"
-/>
+  x="60"
+  y="1080"
+  width="1680"
+  height="300"
+  fill="url(#ocean)"
+  opacity=".95"/>
 
-<text
-  x="-185"
-  y="-80"
-  fill="#555"
-  font-size="10"
->
-  SYSTEM_STATUS // 02
-</text>
+<g fill="none" stroke="#b40000" stroke-width="3" opacity=".5">
 
-<text
-  x="185"
-  y="-80"
-  text-anchor="end"
-  fill="#ff003c"
-  font-size="9"
->
-  ACTIVE
-</text>
+  <path
+    d="M50 1140
+       C200 1100 350 1180 500 1140
+       S800 1100 950 1150
+       S1250 1180 1400 1130
+       S1650 1110 1780 1160"
+    class="wave"/>
 
-<!-- CORE -->
+  <path
+    d="M20 1210
+       C180 1170 330 1240 480 1200
+       S800 1170 960 1220
+       S1270 1240 1430 1190
+       S1660 1180 1800 1230"
+    class="wave"/>
 
-<text
-  x="-185"
-  y="-35"
-  fill="#666"
-  font-size="9"
->
-  CORE
-</text>
+  <path
+    d="M0 1280
+       C150 1240 310 1310 470 1270
+       S790 1240 950 1290
+       S1260 1310 1430 1260
+       S1660 1250 1800 1300"
+    class="wave"/>
 
-<rect
-  x="-185"
-  y="-20"
-  width="300"
-  height="6"
-  fill="#220008"
-/>
-
-<rect
-  x="-185"
-  y="-20"
-  width="245"
-  height="6"
-  fill="#ff003c"
-  filter="url(#glow)"
-/>
-
-<text
-  x="185"
-  y="-12"
-  text-anchor="end"
-  fill="#ff003c"
-  font-size="9"
->
-  82%
-</text>
-
-<!-- NETWORK -->
-
-<text
-  x="-185"
-  y="30"
-  fill="#666"
-  font-size="9"
->
-  NETWORK
-</text>
-
-<rect
-  x="-185"
-  y="45"
-  width="300"
-  height="6"
-  fill="#220008"
-/>
-
-<rect
-  x="-185"
-  y="45"
-  width="290"
-  height="6"
-  fill="#ff003c"
-  opacity=".8"
-/>
-
-<text
-  x="185"
-  y="53"
-  text-anchor="end"
-  fill="#ff003c"
-  font-size="9"
->
-  97%
-</text>
-
-<!-- FIREWALL -->
-
-<text
-  x="-185"
-  y="95"
-  fill="#666"
-  font-size="9"
->
-  FIREWALL
-</text>
-
-<text
-  x="185"
-  y="95"
-  text-anchor="end"
-  fill="#ff003c"
-  font-size="9"
-  class="blink"
->
-  ACTIVE
-</text>
+</g>
 ```
 
   </g>
 
-  <!-- ================================================= -->
+  <!-- ========================================================= -->
 
-  <!--              CENTRAL VOID CORE                   -->
+  <!-- LUFFY MAIN CHARACTER -->
 
-  <!-- ================================================= -->
+  <!-- ========================================================= -->
 
-  <g transform="translate(800 1010)" class="float">
+  <g transform="translate(900 1320)" class="float">
 
 ```
-<!-- outer rings -->
+<!-- AURA -->
 
-<circle
-  r="235"
+<ellipse
+  cx="0"
+  cy="-220"
+  rx="390"
+  ry="520"
+  fill="url(#redGlow)"
+  opacity=".45"
+  filter="url(#softGlow)"/>
+
+<!-- HAKI LIGHTNING -->
+
+<g
+  stroke="#ff2020"
+  stroke-width="7"
   fill="none"
-  stroke="#ff003c"
-  stroke-opacity=".08"
-  stroke-width="2"
-  class="spin"
-/>
-
-<circle
-  r="195"
-  fill="none"
-  stroke="#ff003c"
-  stroke-opacity=".15"
-  stroke-dasharray="4 15"
-  class="reverseSpin"
-/>
-
-<circle
-  r="155"
-  fill="none"
-  stroke="#ff003c"
-  stroke-opacity=".25"
-  stroke-dasharray="2 9"
-  class="spin"
-/>
-
-<!-- glow -->
-
-<circle
-  r="115"
-  fill="#ff003c"
-  opacity=".06"
-  filter="url(#softGlow)"
-/>
-
-<!-- core -->
-
-<circle
-  r="90"
-  fill="#030003"
-  stroke="#ff003c"
-  stroke-width="2"
   filter="url(#glow)"
-/>
+  class="blink">
 
-<!-- pirate skull -->
+  <path d="M-330 -80L-260 -160L-285 -260L-220 -350"/>
+  <path d="M330 -80L260 -170L290 -260L220 -350"/>
+  <path d="M-310 180L-370 260L-300 330"/>
+  <path d="M310 180L370 260L300 330"/>
+
+</g>
+
+<!-- STRAW HAT -->
+
+<ellipse
+  cx="0"
+  cy="-430"
+  rx="205"
+  ry="55"
+  fill="#b98522"
+  stroke="#ffcf57"
+  stroke-width="7"/>
+
+<path
+  d="M-125 -440
+     C-120 -545 120 -545 125 -440
+     Z"
+  fill="#c99a36"
+  stroke="#ffcf57"
+  stroke-width="7"/>
+
+<path
+  d="M-120 -455
+     Q0 -405 120 -455"
+  fill="none"
+  stroke="#7d0000"
+  stroke-width="25"/>
+
+<!-- HAIR -->
 
 <path
   d="
-    M-48-15
-    Q-45-65 0-70
-    Q45-65 48-15
-    L38 35
-    Q0 65-38 35Z
-  "
-  fill="#080208"
-  stroke="#ff003c"
-  stroke-width="3"
-/>
+    M-105 -410
+    Q-190 -350 -130 -270
+    Q-185 -240 -110 -230
+    Q-135 -170 -55 -190
+    Q0 -160 55 -190
+    Q135 -170 110 -230
+    Q185 -240 130 -270
+    Q190 -350 105 -410
+    Z"
+  fill="#151515"
+  stroke="#050505"
+  stroke-width="8"/>
 
-<!-- crossed bones -->
-
-<path
-  d="M-55 55L55-55M-55-55L55 55"
-  stroke="#ff003c"
-  stroke-width="8"
-  stroke-linecap="round"
-  opacity=".8"
-/>
-
-<!-- eyes -->
+<!-- FACE -->
 
 <path
-  d="M-32-20L-10-14M32-20L10-14"
-  stroke="#ff003c"
-  stroke-width="7"
-  stroke-linecap="round"
-  filter="url(#strongGlow)"
-  class="blink"
-/>
+  d="
+    M-110 -330
+    Q0 -390 110 -330
+    L105 -235
+    Q70 -165 0 -145
+    Q-70 -165 -105 -235Z"
+  fill="#d59b6a"
+  stroke="#080808"
+  stroke-width="8"/>
 
-<!-- center -->
+<!-- EARS -->
+
+<ellipse cx="-110" cy="-275" rx="25" ry="40" fill="#c8895e"/>
+<ellipse cx="110" cy="-275" rx="25" ry="40" fill="#c8895e"/>
+
+<!-- EYES -->
+
+<ellipse
+  cx="-43"
+  cy="-275"
+  rx="18"
+  ry="11"
+  fill="#ffffff"/>
+
+<ellipse
+  cx="43"
+  cy="-275"
+  rx="18"
+  ry="11"
+  fill="#ffffff"/>
+
+<circle cx="-43" cy="-275" r="7" fill="#050505"/>
+<circle cx="43" cy="-275" r="7" fill="#050505"/>
+
+<!-- SCAR -->
+
+<path
+  d="M-62 -220L-20 -190"
+  stroke="#6b251b"
+  stroke-width="9"
+  stroke-linecap="round"/>
+
+<!-- SMILE -->
+
+<path
+  d="M-55 -205 Q0 -160 55 -205"
+  fill="none"
+  stroke="#090909"
+  stroke-width="7"/>
+
+<!-- NECK -->
+
+<path
+  d="M-55 -155L-55 -100L55 -100L55 -155"
+  fill="#c8895e"
+  stroke="#080808"
+  stroke-width="8"/>
+
+<!-- COAT -->
+
+<path
+  d="
+    M-60 -110
+    Q-230 -80 -290 100
+    L-350 520
+    Q-170 590 0 500
+    Q170 590 350 520
+    L290 100
+    Q230 -80 60 -110
+    Z"
+  fill="#050505"
+  stroke="#b00000"
+  stroke-width="9"/>
+
+<!-- RED VEST -->
+
+<path
+  d="
+    M-55 -105
+    L0 40
+    L55 -105
+    L95 40
+    L60 250
+    L0 190
+    L-60 250
+    L-95 40
+    Z"
+  fill="#8d0000"
+  stroke="#ff2020"
+  stroke-width="6"/>
+
+<!-- COAT COLLARS -->
+
+<path
+  d="M-55 -105L-150 -25L-70 85L0 40Z"
+  fill="#111"
+  stroke="#d9a52d"
+  stroke-width="5"/>
+
+<path
+  d="M55 -105L150 -25L70 85L0 40Z"
+  fill="#111"
+  stroke="#d9a52d"
+  stroke-width="5"/>
+
+<!-- LEFT ARM -->
+
+<path
+  d="
+    M-175 -40
+    Q-300 10 -330 150
+    L-470 280
+    L-410 340
+    L-220 230
+    Q-150 170 -135 80
+    Z"
+  fill="#070707"
+  stroke="#b00000"
+  stroke-width="9"/>
+
+<!-- RIGHT ARM -->
+
+<path
+  d="
+    M175 -40
+    Q300 10 330 150
+    L470 280
+    L410 340
+    L220 230
+    Q150 170 135 80
+    Z"
+  fill="#070707"
+  stroke="#b00000"
+  stroke-width="9"/>
+
+<!-- LEFT FIST -->
 
 <circle
-  r="7"
-  fill="#ff003c"
-  filter="url(#strongGlow)"
-  class="fastPulse"
-/>
+  cx="-440"
+  cy="320"
+  r="58"
+  fill="#b86f4d"
+  stroke="#080808"
+  stroke-width="9"/>
 
-<!-- compass -->
+<!-- RIGHT FIST -->
+
+<circle
+  cx="440"
+  cy="320"
+  r="58"
+  fill="#b86f4d"
+  stroke="#080808"
+  stroke-width="9"/>
+
+<!-- PANTS -->
 
 <path
-  d="M0-235V-205M0 205V235M-235 0H-205M205 0H235"
-  stroke="#ff003c"
-  stroke-width="3"
-/>
+  d="
+    M-175 230
+    L-40 250
+    L-75 600
+    L-250 600
+    Z"
+  fill="#161616"
+  stroke="#b00000"
+  stroke-width="8"/>
+
+<path
+  d="
+    M175 230
+    L40 250
+    L75 600
+    L250 600
+    Z"
+  fill="#161616"
+  stroke="#b00000"
+  stroke-width="8"/>
+
+<!-- BELT -->
+
+<path
+  d="M-175 235Q0 280 175 235"
+  fill="none"
+  stroke="#d9a52d"
+  stroke-width="22"/>
+
+<!-- LEGS -->
+
+<path
+  d="
+    M-190 530
+    L-250 820
+    L-120 820
+    L-10 560
+    Z"
+  fill="#101010"
+  stroke="#a00000"
+  stroke-width="9"/>
+
+<path
+  d="
+    M190 530
+    L250 820
+    L120 820
+    L10 560
+    Z"
+  fill="#101010"
+  stroke="#a00000"
+  stroke-width="9"/>
+
+<!-- SHOES -->
+
+<path
+  d="M-260 790Q-170 760 -100 820L-90 865H-300Z"
+  fill="#050505"
+  stroke="#d9a52d"
+  stroke-width="6"/>
+
+<path
+  d="M260 790Q170 760 100 820L90 865H300Z"
+  fill="#050505"
+  stroke="#d9a52d"
+  stroke-width="6"/>
 ```
 
   </g>
 
-  <!-- ================================================= -->
+  <!-- ========================================================= -->
 
-  <!--               CONNECTED TERMINAL                 -->
+  <!-- JOLLY ROGER -->
 
-  <!-- ================================================= -->
+  <!-- ========================================================= -->
 
-  <g transform="translate(800 850)">
+  <g transform="translate(900 2070)" class="float">
 
 ```
-<rect
-  x="-310"
-  y="-70"
-  width="620"
-  height="145"
-  fill="url(#card)"
-  stroke="#ff003c"
-  stroke-opacity=".4"
-/>
+<circle
+  r="190"
+  fill="#050505"
+  stroke="#d9a52d"
+  stroke-width="8"
+  filter="url(#shadow)"/>
 
-<text
-  x="-280"
-  y="-40"
-  fill="#555"
-  font-size="9"
->
-  VOID_TERMINAL // LIVE
-</text>
+<!-- SKULL -->
 
-<text
-  x="-280"
-  y="-5"
-  fill="#ff003c"
-  font-size="14"
->
-  &gt; whoami
-</text>
+<path
+  d="
+    M-95 -35
+    Q-100 -145 0 -160
+    Q100 -145 95 -35
+    Q90 50 45 75
+    L45 120
+    L-45 120
+    L-45 75
+    Q-90 50 -95 -35Z"
+  fill="#e8e0c8"/>
 
-<text
-  x="-280"
-  y="25"
-  fill="#fff"
-  font-size="14"
->
-  ALJUDAN
-</text>
+<circle cx="-38" cy="-40" r="27" fill="#050505"/>
+<circle cx="38" cy="-40" r="27" fill="#050505"/>
 
-<text
-  x="-280"
-  y="52"
-  fill="#666"
-  font-size="10"
->
-  designation: UNKNOWN_ENTITY // sector: 404
-</text>
+<path
+  d="M-25 25L0 5L25 25"
+  fill="none"
+  stroke="#050505"
+  stroke-width="12"/>
 
-<text
-  x="280"
-  y="52"
-  text-anchor="end"
-  fill="#ff003c"
-  font-size="10"
-  class="cursor"
->
-  █
-</text>
+<path
+  d="M-30 75H30"
+  stroke="#050505"
+  stroke-width="12"/>
+
+<!-- CROSSBONES -->
+
+<path
+  d="M-125 125L125 -125"
+  stroke="#e8e0c8"
+  stroke-width="28"
+  stroke-linecap="round"/>
+
+<path
+  d="M125 125L-125 -125"
+  stroke="#e8e0c8"
+  stroke-width="28"
+  stroke-linecap="round"/>
 ```
 
   </g>
 
-  <!-- ================================================= -->
+  <!-- ========================================================= -->
 
-  <!--                WANTED PANEL                      -->
+  <!-- GRAND LINE NAVIGATION -->
 
-  <!-- ================================================= -->
+  <!-- ========================================================= -->
 
-  <g transform="translate(800 1270)">
+  <g transform="translate(150 2350)">
 
 ```
 <rect
-  x="-400"
-  y="-105"
-  width="800"
-  height="190"
-  fill="url(#card)"
-  stroke="#ff003c"
-  stroke-opacity=".5"
-/>
+  width="1500"
+  height="400"
+  rx="16"
+  class="panel"/>
 
-<!-- silhouette -->
+<text
+  x="45"
+  y="55"
+  class="mono goldText"
+  font-size="24">
+  GRAND LINE // NAVIGATION
+</text>
 
-<g transform="translate(-255 -5) scale(.38)">
+<text
+  x="45"
+  y="85"
+  class="mono whiteText"
+  font-size="13"
+  opacity=".5">
+  UNKNOWN SEA // ROUTE DATABASE
+</text>
 
-  <!-- coat -->
+<!-- MAP -->
 
-  <path
-    d="
-      M-110 150
-      L-135 45
-      Q-120 5-75-15
-      L75-15
-      Q120 5 135 45
-      L110 150
-      L55 125
-      L0 175
-      L-55 125Z
-    "
-    fill="#030303"
-    stroke="#ff003c"
-    stroke-width="4"
-  />
+<path
+  d="
+    M80 280
+    C180 180 260 310 360 230
+    C470 140 550 320 660 220
+    C780 120 860 310 970 220
+    C1100 110 1190 300 1300 190
+    C1360 140 1410 160 1450 110"
+  fill="none"
+  stroke="#9c0000"
+  stroke-width="7"
+  stroke-dasharray="20 18"
+  class="wave"/>
 
-  <!-- head -->
+<!-- ROUTE POINTS -->
 
-  <path
-    d="
-      M-67-150
-      Q-55-205 0-215
-      Q55-205 67-150
-      L55-65
-      Q0-25-55-65Z
-    "
-    fill="#030303"
-    stroke="#ff003c"
-    stroke-width="4"
-  />
+<g fill="#ff2020" filter="url(#glow)" class="pulse">
+  <circle cx="180" cy="250" r="12"/>
+  <circle cx="390" cy="230" r="12"/>
+  <circle cx="670" cy="220" r="12"/>
+  <circle cx="980" cy="220" r="12"/>
+  <circle cx="1300" cy="190" r="12"/>
+</g>
 
-  <!-- hair -->
+<g class="mono whiteText" font-size="14">
+  <text x="140" y="315">EAST BLUE</text>
+  <text x="350" y="300">REVERSE MOUNTAIN</text>
+  <text x="630" y="290">GRAND LINE</text>
+  <text x="940" y="290">NEW WORLD</text>
+  <text x="1260" y="260">UNKNOWN</text>
+</g>
 
-  <path
-    d="
-      M-70-135
-      Q-115-175-85-235
-      Q-45-275 0-245
-      Q45-275 85-235
-      Q115-175 70-135
-      L45-175
-      L20-145
-      L0-185
-      L-25-145
-      L-45-175Z
-    "
-    fill="#030303"
-    stroke="#ff003c"
-    stroke-width="4"
-  />
+<!-- COMPASS -->
 
-  <!-- eyes -->
+<g transform="translate(1350 290)" class="spin">
 
-  <path
-    d="M-43-115L-10-105M43-115L10-105"
-    stroke="#ff003c"
-    stroke-width="10"
-    stroke-linecap="round"
-    filter="url(#glow)"
-    class="blink"
-  />
+  <circle
+    r="65"
+    fill="none"
+    stroke="#d9a52d"
+    stroke-width="2"/>
 
-  <!-- sword -->
+  <circle
+    r="45"
+    fill="none"
+    stroke="#7d0000"
+    stroke-width="2"/>
 
   <path
-    d="M115 125L270-60"
-    stroke="#aaa"
-    stroke-width="9"
-  />
+    d="M0 -60L15 0L0 60L-15 0Z"
+    fill="#d9a52d"/>
 
   <path
-    d="M105 140L145 100"
-    stroke="#ff003c"
-    stroke-width="14"
-  />
+    d="M-60 0L0 15L60 0L0 -15Z"
+    fill="#7d0000"/>
+
+  <circle r="8" fill="#ff2020"/>
+
+</g>
+```
+
+  </g>
+
+  <!-- ========================================================= -->
+
+  <!-- WANTED POSTER -->
+
+  <!-- ========================================================= -->
+
+  <g transform="translate(300 2860)" filter="url(#shadow)">
+
+```
+<rect
+  width="1200"
+  height="500"
+  rx="5"
+  fill="#d7c48a"
+  stroke="#9b7a30"
+  stroke-width="12"/>
+
+<rect
+  x="20"
+  y="20"
+  width="1160"
+  height="460"
+  fill="none"
+  stroke="#493b1c"
+  stroke-width="4"/>
+
+<text
+  x="600"
+  y="95"
+  text-anchor="middle"
+  font-family="serif"
+  font-weight="900"
+  font-size="85"
+  fill="#17130a">
+  WANTED
+</text>
+
+<text
+  x="600"
+  y="145"
+  text-anchor="middle"
+  font-family="serif"
+  font-size="20"
+  letter-spacing="8"
+  fill="#332815">
+  DEAD OR ALIVE
+</text>
+
+<!-- MINI LUFFY -->
+
+<g transform="translate(600 285) scale(.55)">
+
+  <ellipse
+    cx="0"
+    cy="-150"
+    rx="160"
+    ry="45"
+    fill="#b98522"
+    stroke="#3c2b0b"
+    stroke-width="8"/>
+
+  <path
+    d="M-100 -160C-100 -250 100 -250 100 -160Z"
+    fill="#c99a36"
+    stroke="#3c2b0b"
+    stroke-width="8"/>
+
+  <path
+    d="M-95 -175Q0 -130 95 -175"
+    fill="none"
+    stroke="#7d0000"
+    stroke-width="25"/>
+
+  <ellipse
+    cx="0"
+    cy="-80"
+    rx="100"
+    ry="120"
+    fill="#d59b6a"
+    stroke="#080808"
+    stroke-width="8"/>
+
+  <path
+    d="M-85 -125Q0 -190 85 -125"
+    fill="#111"/>
+
+  <circle cx="-35" cy="-80" r="12"/>
+  <circle cx="35" cy="-80" r="12"/>
+
+  <path
+    d="M-45 -25Q0 20 45 -25"
+    fill="none"
+    stroke="#111"
+    stroke-width="8"/>
+
+  <path
+    d="M-80 40Q0 10 80 40L120 300H-120Z"
+    fill="#050505"
+    stroke="#7d0000"
+    stroke-width="10"/>
 
 </g>
 
-<!-- wanted text -->
-
 <text
-  x="-35"
-  y="-55"
-  fill="#555"
-  font-size="9"
->
-  WANTED // UNKNOWN
-</text>
-
-<text
-  x="-35"
-  y="-12"
-  fill="#fff"
-  font-size="30"
-  font-weight="bold"
->
+  x="600"
+  y="445"
+  text-anchor="middle"
+  font-family="serif"
+  font-weight="900"
+  font-size="42"
+  letter-spacing="8"
+  fill="#17130a">
   ALJUDAN
-</text>
-
-<text
-  x="-35"
-  y="20"
-  fill="#ff003c"
-  font-size="10"
-  class="flicker"
->
-  DEAD OR LOST IN THE VOID
-</text>
-
-<text
-  x="-35"
-  y="55"
-  fill="#666"
-  font-size="9"
->
-  BOUNTY: UNKNOWN
-</text>
-
-<text
-  x="330"
-  y="55"
-  text-anchor="end"
-  fill="#ff003c"
-  font-size="9"
->
-  TRACE FAILED
 </text>
 ```
 
   </g>
 
-  <!-- ================================================= -->
+  <!-- ========================================================= -->
 
-  <!--                  FINAL MESSAGE                   -->
+  <!-- TERMINAL -->
 
-  <!-- ================================================= -->
+  <!-- ========================================================= -->
 
-<line
- x1="120"
- y1="1400"
- x2="1480"
- y2="1400"
- stroke="url(#redLine)"
- stroke-width="2"
-/>
+  <g transform="translate(150 3420)">
+
+```
+<rect
+  width="1500"
+  height="100"
+  rx="10"
+  fill="#030303"
+  stroke="#720000"
+  stroke-width="2"/>
 
 <text
-x="800"
-y="1435"
-text-anchor="middle"
-fill="#555"
-font-size="10"
-
->
-
-```
-CONNECTION TERMINATED // SIGNAL LOST // VOID REMAINS
-```
-
-  </text>
+  x="35"
+  y="38"
+  class="mono redText"
+  font-size="15">
+  &gt; TRANSMISSION
+</text>
 
 <text
-x="800"
-y="1460"
-text-anchor="middle"
-fill="#ff003c"
-font-size="9"
-class="blink"
+  x="35"
+  y="67"
+  class="mono whiteText"
+  font-size="14"
+  opacity=".75">
+  &gt; destination: GRAND_LINE
+</text>
 
->
-
-```
-● END OF TRANSMISSION
-```
-
-  </text>
-
-  <!-- ================================================= -->
-
-  <!--                   SCANLINES                      -->
-
-  <!-- ================================================= -->
+<text
+  x="460"
+  y="67"
+  class="mono goldText"
+  font-size="14">
+  &gt; captain: ALJUDAN
+</text>
 
 <rect
- width="1600"
- height="1500"
- fill="url(#scanlines)"
- class="scan"
-/>
+  x="1470"
+  y="25"
+  width="12"
+  height="45"
+  fill="#ff2020"
+  class="cursor"/>
+```
+
+  </g>
+
+  <!-- ========================================================= -->
+
+  <!-- FOOTER -->
+
+  <!-- ========================================================= -->
+
+  <g text-anchor="middle">
+
+```
+<text
+  x="900"
+  y="3570"
+  class="mono redText flicker"
+  font-size="17">
+  SIGNAL LOST // GRAND LINE REMAINS
+</text>
+```
+
+  </g>
+
+  <!-- ========================================================= -->
+
+  <!-- SCANLINE -->
+
+  <!-- ========================================================= -->
+
+  <g opacity=".08">
+    <rect
+      x="60"
+      y="-300"
+      width="1680"
+      height="10"
+      fill="#ff2020"
+      class="scan"/>
+  </g>
+
+  <!-- ========================================================= -->
+
+  <!-- PARTICLES -->
+
+  <!-- ========================================================= -->
+
+  <g fill="#ff3030" class="pulse">
+
+```
+<circle cx="170" cy="420" r="3"/>
+<circle cx="270" cy="510" r="2"/>
+<circle cx="1560" cy="390" r="3"/>
+<circle cx="1480" cy="520" r="2"/>
+
+<circle cx="220" cy="1800" r="3"/>
+<circle cx="1570" cy="1770" r="2"/>
+<circle cx="300" cy="2180" r="2"/>
+<circle cx="1510" cy="2200" r="3"/>
+
+<circle cx="180" cy="3100" r="3"/>
+<circle cx="1600" cy="3150" r="2"/>
+```
+
+  </g>
 
 </svg>
