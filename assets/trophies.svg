@@ -15,7 +15,7 @@
 
   <rect x="4" y="4" width="1192" height="207" rx="18" fill="url(#tr-card)" stroke="#FF0033" stroke-width="2"/>
   <text x="48" y="44" font-family="monospace" font-size="18" font-weight="bold" letter-spacing="2" fill="#ffffff">ARCADE TROPHIES — UNLOCKED</text>
-  <text x="1152" y="44" text-anchor="end" font-family="monospace" font-size="13" fill="#777777">pengganti layanan trophy yang paused</text>
+  <text x="1152" y="44" text-anchor="end" font-family="monospace" font-size="13" fill="#777777">milestones from the learning journey</text>
   <line x1="48" y1="58" x2="1152" y2="58" stroke="#333333" stroke-width="1"/>
 
   <g font-family="monospace" text-anchor="middle" filter="url(#tr-glow)">

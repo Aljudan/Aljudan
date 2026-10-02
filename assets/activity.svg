@@ -12,7 +12,7 @@
 
   <rect x="4" y="4" width="1192" height="252" rx="18" fill="url(#ac-card)" stroke="#FF0033" stroke-width="2" opacity="1"/>
   <text x="48" y="46" font-family="monospace" font-size="18" font-weight="bold" letter-spacing="2" fill="#ffffff">WEEKLY ACTIVITY — BOSS BATTLES</text>
-  <text x="1152" y="46" text-anchor="end" font-family="monospace" font-size="13" fill="#777777">ilustrasi ■ kontribusi asli di Snake / Pac-Man</text>
+  <text x="1152" y="46" text-anchor="end" font-family="monospace" font-size="13" fill="#777777">illustrative progress view</text>
   <line x1="48" y1="60" x2="1152" y2="60" stroke="#333333" stroke-width="1"/>
 
   <g font-family="monospace" text-anchor="middle">
@@ -68,5 +68,5 @@
     <line x1="80" y1="164" x2="1120" y2="164" stroke="#333333" stroke-width="1"/>
   </g>
 
-  <text x="600" y="228" text-anchor="middle" font-family="monospace" font-size="12.5" fill="#777777">main tiap hari, commit tiap ada waktu — grind santai, bukan speedrun</text>
+  <text x="600" y="228" text-anchor="middle" font-family="monospace" font-size="12.5" fill="#777777">small steps, steady progress — no speedrun required</text>
 </svg>
