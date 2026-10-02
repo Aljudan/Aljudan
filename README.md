@@ -11,5 +11,13 @@
 
 <br><br>
 
+  <img src="./assets/terminal.svg" width="100%" alt="Void Terminal">
+
+<br><br>
+
+  <img src="./assets/wanted.svg" width="100%" alt="Wanted - ALJUDAN">
+
+<br><br>
+
   <img src="./assets/footer.svg" width="100%" alt="End of Transmission">
 </div>

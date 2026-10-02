@@ -1,0 +1,313 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 620">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#020202"/>
+      <stop offset=".5" stop-color="#0d0206"/>
+      <stop offset="1" stop-color="#030303"/>
+    </linearGradient>
+
+```
+<linearGradient id="red" x1="0" y1="0" x2="1" y2="0">
+  <stop offset="0" stop-color="#650014"/>
+  <stop offset=".5" stop-color="#ff003c"/>
+  <stop offset="1" stop-color="#650014"/>
+</linearGradient>
+
+<radialGradient id="ambient">
+  <stop offset="0" stop-color="#ff003c" stop-opacity=".15"/>
+  <stop offset="1" stop-color="#ff003c" stop-opacity="0"/>
+</radialGradient>
+
+<pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+  <path d="M40 0H0V40"
+        fill="none"
+        stroke="#ff003c"
+        stroke-opacity=".055"/>
+</pattern>
+
+<pattern id="scanlines" width="1" height="8" patternUnits="userSpaceOnUse">
+  <rect width="1" height="3" fill="#fff" opacity=".025"/>
+</pattern>
+
+<filter id="glow">
+  <feGaussianBlur stdDeviation="5" result="blur"/>
+  <feMerge>
+    <feMergeNode in="blur"/>
+    <feMergeNode in="SourceGraphic"/>
+  </feMerge>
+</filter>
+
+<style>
+  .blink {
+    animation: blink 1s steps(2,end) infinite;
+  }
+
+  .slowBlink {
+    animation: blink 2.5s steps(2,end) infinite;
+  }
+
+  .scan {
+    animation: scan 5s linear infinite;
+  }
+
+  .cursor {
+    animation: cursor 1s steps(2,end) infinite;
+  }
+
+  @keyframes blink {
+    50% { opacity: .15; }
+  }
+
+  @keyframes scan {
+    from { transform: translateY(-620px); }
+    to { transform: translateY(620px); }
+  }
+
+  @keyframes cursor {
+    50% { opacity: 0; }
+  }
+
+  text {
+    font-family: monospace;
+    letter-spacing: 1.5px;
+  }
+</style>
+```
+
+  </defs>
+
+  <!-- BACKGROUND -->
+
+  <rect width="1600" height="620" fill="url(#bg)"/>
+  <rect width="1600" height="620" fill="url(#grid)"/>
+
+<circle cx="1250" cy="300" r="400"
+       fill="url(#ambient)"/>
+
+  <!-- FRAME -->
+
+<rect x="20" y="20" width="1560" height="580"
+     fill="none"
+     stroke="#ff003c"
+     stroke-opacity=".45"/>
+
+  <!-- TERMINAL HEADER -->
+
+<rect x="20" y="20" width="1560" height="58"
+     fill="#090306"
+     stroke="#ff003c"
+     stroke-opacity=".4"/>
+
+  <circle cx="52" cy="49" r="7" fill="#ff003c"/>
+  <circle cx="76" cy="49" r="7" fill="#660018"/>
+  <circle cx="100" cy="49" r="7" fill="#660018"/>
+
+<text x="135" y="55"
+     fill="#777"
+     font-size="14">
+VOID_TERMINAL // ALJUDAN </text>
+
+<text x="1535" y="55"
+     text-anchor="end"
+     fill="#ff003c"
+     font-size="12"
+     class="blink">
+LIVE </text>
+
+  <!-- TERMINAL CONTENT -->
+
+  <g transform="translate(85 125)" font-size="18">
+
+```
+<text y="0" fill="#555">
+  [SYSTEM]
+</text>
+
+<text y="42" fill="#ff003c">
+  &gt; boot_sequence --silent
+</text>
+
+<text y="78" fill="#777">
+  initializing void_gate...
+</text>
+
+<text y="114" fill="#aaa">
+  connection established
+</text>
+
+<text y="150" fill="#ff003c">
+  [OK]
+</text>
+
+<text x="70" y="150" fill="#aaa">
+  encrypted channel online
+</text>
+
+<text y="205" fill="#555">
+  [IDENTITY]
+</text>
+
+<text y="247" fill="#ff003c">
+  &gt; whoami
+</text>
+
+<text y="283" fill="#fff">
+  ALJUDAN
+</text>
+
+<text y="319" fill="#777">
+  designation: UNKNOWN_ENTITY
+</text>
+
+<text y="355" fill="#777">
+  sector: 404
+</text>
+
+<text y="391" fill="#777">
+  location: THE_VOID
+</text>
+
+<text y="445" fill="#555">
+  [ACCESS]
+</text>
+
+<text y="487" fill="#ff003c">
+  &gt; access void_gate
+</text>
+
+<text x="0" y="523" fill="#fff">
+  ACCESS GRANTED
+</text>
+
+<text x="260" y="523" fill="#ff003c" class="blink">
+  █
+</text>
+```
+
+  </g>
+
+  <!-- RIGHT SIDE DATA -->
+
+  <g transform="translate(920 130)">
+    <text fill="#555" font-size="13">
+      SYSTEM_DIAGNOSTICS
+    </text>
+
+```
+<!-- CPU -->
+<text y="48" fill="#777" font-size="12">
+  CORE
+</text>
+
+<rect y="63" width="420" height="8"
+      fill="#220008"/>
+
+<rect y="63" width="330" height="8"
+      fill="url(#red)"
+      filter="url(#glow)"/>
+
+<text x="440" y="71"
+      fill="#ff003c"
+      font-size="11">
+  78%
+</text>
+
+<!-- NETWORK -->
+<text y="115" fill="#777" font-size="12">
+  NETWORK
+</text>
+
+<rect y="130" width="420" height="8"
+      fill="#220008"/>
+
+<rect y="130" width="390" height="8"
+      fill="#ff003c"
+      opacity=".75"/>
+
+<text x="440" y="138"
+      fill="#ff003c"
+      font-size="11">
+  99%
+</text>
+
+<!-- FIREWALL -->
+<text y="182" fill="#777" font-size="12">
+  FIREWALL
+</text>
+
+<rect y="197" width="420" height="8"
+      fill="#220008"/>
+
+<rect y="197" width="405" height="8"
+      fill="#ff003c"
+      opacity=".8"/>
+
+<text x="440" y="205"
+      fill="#ff003c"
+      font-size="11">
+  ACTIVE
+</text>
+
+<!-- TRACE -->
+<text y="255" fill="#777" font-size="12">
+  TRACE
+</text>
+
+<text y="285" fill="#fff" font-size="16">
+  ▰ ▰ ▰ ▰ ▰ ▰ ▰ ▱ ▱ ▱
+</text>
+
+<text y="325" fill="#ff003c" font-size="13" class="slowBlink">
+  UNKNOWN SIGNAL DETECTED
+</text>
+
+<text y="370" fill="#555" font-size="12">
+  LATENCY
+</text>
+
+<text x="120" y="370" fill="#fff" font-size="12">
+  13ms
+</text>
+
+<text y="402" fill="#555" font-size="12">
+  ENCRYPTION
+</text>
+
+<text x="150" y="402" fill="#fff" font-size="12">
+  AES-VOID
+</text>
+
+<text y="434" fill="#555" font-size="12">
+  STATUS
+</text>
+
+<text x="100" y="434" fill="#ff003c" font-size="12">
+  UNRESOLVED
+</text>
+```
+
+  </g>
+
+  <!-- BOTTOM -->
+
+<line x1="85" y1="550" x2="1515" y2="550"
+     stroke="#ff003c"
+     stroke-opacity=".2"/>
+
+<text x="85" y="580"
+     fill="#555"
+     font-size="11">
+SESSION_ID: 404-NULL-ALJUDAN </text>
+
+<text x="1515" y="580"
+     text-anchor="end"
+     fill="#ff003c"
+     font-size="11"
+     class="blink">
+> _ </text>
+
+  <!-- SCANLINE -->
+
+<rect width="1600" height="620"
+     fill="url(#scanlines)"
+     class="scan"/> </svg>
