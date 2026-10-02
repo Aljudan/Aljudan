@@ -1,0 +1,259 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 300" width="1600" height="300">
+
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1">
+      <stop offset="0" stop-color="#030303"/>
+      <stop offset=".5" stop-color="#100003"/>
+      <stop offset="1" stop-color="#030303"/>
+    </linearGradient>
+
+```
+<filter id="glow">
+  <feGaussianBlur stdDeviation="4" result="b"/>
+  <feMerge>
+    <feMergeNode in="b"/>
+    <feMergeNode in="SourceGraphic"/>
+  </feMerge>
+</filter>
+
+<style>
+  .m { font-family: "Courier New", monospace; letter-spacing: 3px; }
+  .r { fill:#ff1744; }
+  .w { fill:#eee; }
+  .d { fill:#702033; }
+
+  .blink {
+    animation: blink 2s infinite;
+  }
+
+  .pulse {
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes blink {
+    0%,45%,100% { opacity:1; }
+    47%,49% { opacity:.15; }
+  }
+
+  @keyframes pulse {
+    0%,100% { opacity:.4; }
+    50% { opacity:1; }
+  }
+</style>
+```
+
+  </defs>
+
+  <rect width="1600" height="300" fill="url(#bg)"/>
+
+<rect x="25" y="25" width="1550" height="250"
+     fill="none"
+     stroke="#4e0918"/>
+
+<text x="55" y="65"
+     class="m r"
+     font-size="18">
+SYSTEM // STATUS </text>
+
+<text x="1545" y="65"
+     text-anchor="end"
+     class="m d"
+     font-size="12">
+ALJUDAN_NODE_404 </text>
+
+  <!-- BOX 1 -->
+
+  <g transform="translate(55 95)">
+    <rect width="330" height="135"
+          fill="#050000"
+          stroke="#671023"/>
+
+```
+<text x="20" y="35"
+      class="m r"
+      font-size="13">
+  CORE
+</text>
+
+<text x="20" y="68"
+      class="m d"
+      font-size="10">
+  CONNECTION
+</text>
+
+<text x="190" y="68"
+      class="m w"
+      font-size="10">
+  ONLINE
+</text>
+
+<circle cx="300" cy="64" r="5"
+        fill="#ff1744"
+        filter="url(#glow)"
+        class="blink"/>
+
+<text x="20" y="92"
+      class="m d"
+      font-size="10">
+  SIGNAL
+</text>
+
+<text x="190" y="92"
+      class="m w"
+      font-size="10">
+  STABLE
+</text>
+
+<text x="20" y="116"
+      class="m d"
+      font-size="10">
+  MODE
+</text>
+
+<text x="190" y="116"
+      class="m r"
+      font-size="10">
+  VOID
+</text>
+```
+
+  </g>
+
+  <!-- BOX 2 -->
+
+  <g transform="translate(425 95)">
+    <rect width="330" height="135"
+          fill="#050000"
+          stroke="#671023"/>
+
+```
+<text x="20" y="35"
+      class="m r"
+      font-size="13">
+  SIGNAL
+</text>
+
+<g transform="translate(20 65)" stroke="#ff1744">
+  <path d="M0 35 L25 25 L50 30 L75 5 L100 22 L125 15 L150 27 L175 0 L200 17 L225 10 L250 20 L275 5"
+        fill="none"
+        stroke-width="2"
+        filter="url(#glow)"/>
+</g>
+
+<text x="20" y="118"
+      class="m d"
+      font-size="10">
+  FREQUENCY
+</text>
+
+<text x="230" y="118"
+      class="m w"
+      font-size="10">
+  404MHz
+</text>
+```
+
+  </g>
+
+  <!-- BOX 3 -->
+
+  <g transform="translate(795 95)">
+    <rect width="330" height="135"
+          fill="#050000"
+          stroke="#671023"/>
+
+```
+<text x="20" y="35"
+      class="m r"
+      font-size="13">
+  SECURITY
+</text>
+
+<text x="20" y="68"
+      class="m d"
+      font-size="10">
+  LEVEL
+</text>
+
+<text x="210" y="68"
+      class="m r"
+      font-size="10">
+  RED
+</text>
+
+<rect x="20" y="82" width="270" height="8"
+      fill="#22000a"/>
+
+<rect x="20" y="82" width="205" height="8"
+      fill="#ff1744"
+      class="pulse"/>
+
+<text x="20" y="118"
+      class="m d"
+      font-size="10">
+  FIREWALL
+</text>
+
+<text x="210" y="118"
+      class="m w"
+      font-size="10">
+  ACTIVE
+</text>
+```
+
+  </g>
+
+  <!-- BOX 4 -->
+
+  <g transform="translate(1165 95)">
+    <rect width="380" height="135"
+          fill="#050000"
+          stroke="#671023"/>
+
+```
+<text x="20" y="35"
+      class="m r"
+      font-size="13">
+  TRACE
+</text>
+
+<text x="20" y="68"
+      class="m d"
+      font-size="10">
+  LOCATION
+</text>
+
+<text x="180" y="68"
+      class="m w"
+      font-size="10">
+  UNKNOWN
+</text>
+
+<text x="20" y="92"
+      class="m d"
+      font-size="10">
+  TARGET
+</text>
+
+<text x="180" y="92"
+      class="m r"
+      font-size="10">
+  ALJUDAN
+</text>
+
+<text x="20" y="116"
+      class="m d"
+      font-size="10">
+  ACCESS
+</text>
+
+<text x="180" y="116"
+      class="m w"
+      font-size="10">
+  GRANTED
+</text>
+```
+
+  </g>
+
+</svg>
