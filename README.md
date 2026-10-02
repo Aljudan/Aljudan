@@ -1,8 +1,9 @@
-<!-- ═══════════════════════════════════════════════════════ -->
-<!--  ALJUDAN — BLACK & RED ARCADE 🔴 — v9 LOCAL ASSETS      -->
-<!--  Header, typing, dashboard, activity, repo & footer     -->
-<!--  digambar lokal di assets/ (tanpa layanan yg paused)   -->
-<!-- ═══════════════════════════════════════════════════════ -->
+<!-- ═══════════════════════════════════════════════ -->
+<!--  ALJUDAN — BLACK & RED ARCADE 🔴 — v10           -->
+<!--  Aset lokal digambar di assets/                  -->
+<!--  Snake / Pac-Man / Breakout → workflow           -->
+<!--  `Arcade Games` → branch `output` (12 jam sekali) -->
+<!-- ═══════════════════════════════════════════════ -->
 
 <img src="assets/header.svg" width="100%" alt="ALJUDAN — Black & Red Arcade"/>
 
@@ -19,10 +20,6 @@
 <p align="center">
   <img src="https://komarev.com/ghpvc/?username=Aljudan&style=flat-square&label=VIEWS&color=330000&labelColor=000000" alt="views"/>
   <img src="https://img.shields.io/github/followers/Aljudan?style=flat-square&label=FOLLOWERS&color=330000&labelColor=000000" alt="followers"/>
-</p>
-
-<p align="center">
-  <sub>⚠️ <i>Stack di bawah cuma buat estetik biar padet 🔴 — masih belajar, bukan ngaku jago 🙏</i></sub>
 </p>
 
 <br/>
@@ -72,8 +69,6 @@ TypeScript ████░░░░░░ 40%
 
 ### `> tech_stack` — 🎨 display only
 
-<p align="center"><sub>ikon di bawah cuma biar rame — <b>bukan flexing</b> 🙏</sub></p>
-
 <p align="center">
   <img src="https://skillicons.dev/icons?i=html,css,js,ts,react,nextjs,tailwind,nodejs,python,git,github,vscode,figma,vercel" alt="skills"/>
 </p>
@@ -85,6 +80,8 @@ TypeScript ████░░░░░░ 40%
   <img src="https://img.shields.io/badge/Next.js-dipajang_biar_cakep-ffffff?style=flat-square&labelColor=000000" alt="next"/>
 </p>
 
+<p align="center"><sub>masih belajar — stack di atas buat pemanis, bukan flexing 🙏</sub></p>
+
 <br/>
 
 <!-- ═══════════════ ARCADE ZONE ═══════════════ -->
@@ -94,7 +91,7 @@ TypeScript ████░░░░░░ 40%
 <p align="center">
   <img src="https://img.shields.io/badge/▓▓▓_ARCADE_READY_▓▓▓-PRESS_START-FF0033?style=for-the-badge&labelColor=000000" alt="press start"/>
   <br/>
-  <sub>Snake & Pac-Man dibuat otomatis dari kontribusi GitHub kamu (workflow: <code>Arcade Games</code>)</sub>
+  <sub>digambar otomatis dari kontribusi GitHub tiap 12 jam — workflow <code>Arcade Games</code></sub>
 </p>
 
 #### 🐍 SNAKE — EAT COMMITS
@@ -111,6 +108,14 @@ TypeScript ████░░░░░░ 40%
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Aljudan/Aljudan/output/pacman-contribution-graph-dark.svg"/>
   <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Aljudan/Aljudan/output/pacman-contribution-graph.svg"/>
   <img src="https://raw.githubusercontent.com/Aljudan/Aljudan/output/pacman-contribution-graph-dark.svg" width="100%" alt="pacman"/>
+</picture>
+
+#### 🧱 BREAKOUT — SMASH COMMITS
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Aljudan/Aljudan/output/breakout-contribution-graph-dark.svg"/>
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Aljudan/Aljudan/output/breakout-contribution-graph.svg"/>
+  <img src="https://raw.githubusercontent.com/Aljudan/Aljudan/output/breakout-contribution-graph-dark.svg" width="100%" alt="breakout"/>
 </picture>
 
 <table width="100%">
@@ -166,8 +171,6 @@ TypeScript ████░░░░░░ 40%
 
 ### `> analytics` — 📊 LOCAL DASHBOARD
 
-<p align="center"><sub>widget live (<code>github-readme-stats</code>, <code>streak</code>, <code>activity-graph</code>, <code>trophy</code>) lagi paused — diganti dasbor lokal biar profil tetap nyala 🔴</sub></p>
-
 <p align="center">
   <img src="assets/dashboard.svg" width="100%" alt="analytics dashboard"/>
 </p>
@@ -198,7 +201,7 @@ TypeScript ████░░░░░░ 40%
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/▓▓▓_CONTINUE_%3F_▓▓▓-YES_▶-FF0033?style=for-the-badge&labelColor=000000" alt="continue"/>
+  <img src="https://img.shields.io/badge/▓▓▓_CONTINUE_?_▓▓▓-YES_▶-FF0033?style=for-the-badge&labelColor=000000" alt="continue"/>
 </p>
 
 <br/>
@@ -221,17 +224,3 @@ TypeScript ████░░░░░░ 40%
 <img src="assets/footer.svg" width="100%" alt="Game over — insert coin — Aljudan"/>
 
 <p align="center"><sub>© 2026 Aljudan — <i>"Play more, learn more."</i> 🔴🎮</sub></p>
-
-<details>
-<summary>⚙️ Snake / Pac-Man masih kosong? Klik di sini (cukup 1x)</summary>
-
-Workflow-nya sudah ada di <code>.github/workflows/arcade.yml</code>. Tinggal:
-
-1. Buka tab **Actions** di repo `Aljudan/Aljudan`
-2. Pilih **Arcade Games** → klik **Run workflow**
-3. Tunggu ± 2 menit sampai hijau ✅
-4. Refresh halaman profil kamu — Snake & Pac-Man langsung muncul 🐍👻
-
-Setelah itu otomatis update tiap 12 jam & tiap push ke `main`.
-
-</details>

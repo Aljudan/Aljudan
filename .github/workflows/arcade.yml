@@ -12,21 +12,23 @@ jobs:
     permissions:
       contents: write
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
-      # 🐍 Snake — makan kontribusi
+      # 🐍 Snake — makan kontribusi (palette merah sesuai tema Black & Red Arcade)
       - name: Generate Snake
         uses: Platane/snk/svg-only@v3
         with:
           github_user_name: Aljudan
           outputs: |
-            dist/github-contribution-grid-snake.svg
-            dist/github-contribution-grid-snake-dark.svg?palette=github-dark&color_snake=#FF0033
+            dist/github-contribution-grid-snake.svg?color_snake=#D6002E&color_dots=#ebedf0,#ffd3da,#ff9fb0,#ff4d6b,#d6002e
+            dist/github-contribution-grid-snake-dark.svg?color_snake=#FF0033&color_dots=#161b22,#3d0a13,#731224,#b81f34,#ff2040
 
-      # 👻 Pac-Man — makan titik kontribusi
-      - name: Generate Pac-Man
+      # 🕹️ Pac-Man & Breakout — makan titik & pecahin bata kontribusi
+      - name: Generate Pac-Man & Breakout
         uses: abozanona/pacman-contribution-graph@main
         with:
           github_user_name: Aljudan
+          games: "pacman,breakout"
 
       # 🚀 Deploy semua SVG ke branch `output`
       - name: Push ke branch output
