@@ -1,0 +1,829 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 720" width="1600" height="720">
+  <defs>
+
+```
+<!-- Background -->
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+  <stop offset="0%" stop-color="#050505"/>
+  <stop offset="45%" stop-color="#0b0809"/>
+  <stop offset="100%" stop-color="#050505"/>
+</linearGradient>
+
+<radialGradient id="redAura" cx="50%" cy="48%" r="55%">
+  <stop offset="0%" stop-color="#8b0000" stop-opacity=".28"/>
+  <stop offset="45%" stop-color="#480000" stop-opacity=".12"/>
+  <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+</radialGradient>
+
+<linearGradient id="redText" x1="0" y1="0" x2="1" y2="0">
+  <stop offset="0%" stop-color="#650000"/>
+  <stop offset="50%" stop-color="#ff2020"/>
+  <stop offset="100%" stop-color="#650000"/>
+</linearGradient>
+
+<linearGradient id="line" x1="0" y1="0" x2="1" y2="0">
+  <stop offset="0%" stop-color="#ff1a1a" stop-opacity="0"/>
+  <stop offset="50%" stop-color="#ff1a1a" stop-opacity=".9"/>
+  <stop offset="100%" stop-color="#ff1a1a" stop-opacity="0"/>
+</linearGradient>
+
+<!-- Grid -->
+<pattern id="grid" width="55" height="55" patternUnits="userSpaceOnUse">
+  <path d="M55 0H0V55" fill="none" stroke="#8b0000" stroke-opacity=".10"/>
+</pattern>
+
+<!-- Scanlines -->
+<pattern id="scanlines" width="100%" height="8" patternUnits="userSpaceOnUse">
+  <rect width="100%" height="1" fill="#ff2020" opacity=".045"/>
+</pattern>
+
+<!-- Glow -->
+<filter id="glow">
+  <feGaussianBlur stdDeviation="7" result="blur"/>
+  <feMerge>
+    <feMergeNode in="blur"/>
+    <feMergeNode in="SourceGraphic"/>
+  </feMerge>
+</filter>
+
+<filter id="smallGlow">
+  <feGaussianBlur stdDeviation="2.5" result="blur"/>
+  <feMerge>
+    <feMergeNode in="blur"/>
+    <feMergeNode in="SourceGraphic"/>
+  </feMerge>
+</filter>
+
+<!-- Clip -->
+<clipPath id="screen">
+  <rect x="18" y="18" width="1564" height="684" rx="12"/>
+</clipPath>
+
+<!-- Animations -->
+<style>
+  .mono {
+    font-family: "Courier New", monospace;
+    letter-spacing: 2px;
+  }
+
+  .title {
+    font-family: "Arial Black", "Arial", sans-serif;
+    font-weight: 900;
+    letter-spacing: 20px;
+  }
+
+  .blink {
+    animation: blink 1.15s steps(2, start) infinite;
+  }
+
+  .pulse {
+    animation: pulse 2.8s ease-in-out infinite;
+  }
+
+  .flicker {
+    animation: flicker 4s infinite;
+  }
+
+  .scanMove {
+    animation: scanMove 5s linear infinite;
+  }
+
+  .float {
+    animation: float 4s ease-in-out infinite;
+  }
+
+  .glitchA {
+    animation: glitchA 3.5s infinite;
+  }
+
+  .glitchB {
+    animation: glitchB 4.1s infinite;
+  }
+
+  .particle {
+    animation: particle 4s linear infinite;
+  }
+
+  @keyframes blink {
+    0%, 45% { opacity: 1; }
+    46%, 100% { opacity: .15; }
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: .55; }
+    50% { opacity: 1; }
+  }
+
+  @keyframes flicker {
+    0%, 92%, 100% { opacity: 1; }
+    93% { opacity: .35; }
+    94% { opacity: 1; }
+    96% { opacity: .55; }
+    97% { opacity: 1; }
+  }
+
+  @keyframes scanMove {
+    from { transform: translateY(-20px); }
+    to { transform: translateY(740px); }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-7px); }
+  }
+
+  @keyframes glitchA {
+    0%, 88%, 100% {
+      transform: translate(0,0);
+      opacity: 0;
+    }
+    89% {
+      transform: translate(-8px,2px);
+      opacity: .65;
+    }
+    90% {
+      transform: translate(7px,-2px);
+      opacity: .35;
+    }
+    91% {
+      transform: translate(-3px,1px);
+      opacity: 0;
+    }
+  }
+
+  @keyframes glitchB {
+    0%, 91%, 100% {
+      transform: translate(0,0);
+      opacity: 0;
+    }
+    92% {
+      transform: translate(8px,-1px);
+      opacity: .55;
+    }
+    93% {
+      transform: translate(-5px,2px);
+      opacity: .3;
+    }
+    94% {
+      transform: translate(0,0);
+      opacity: 0;
+    }
+  }
+
+  @keyframes particle {
+    0% {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    15% {
+      opacity: .8;
+    }
+    85% {
+      opacity: .8;
+    }
+    100% {
+      transform: translateY(-90px);
+      opacity: 0;
+    }
+  }
+</style>
+```
+
+  </defs>
+
+  <!-- ========================================================= -->
+
+  <!-- BACKGROUND                                                -->
+
+  <!-- ========================================================= -->
+
+  <rect width="1600" height="720" fill="url(#bg)"/>
+
+  <rect width="1600" height="720" fill="url(#redAura)"/>
+
+  <rect width="1600" height="720" fill="url(#grid)"/>
+
+  <!-- Red atmospheric glow -->
+
+<ellipse
+ cx="800"
+ cy="375"
+ rx="520"
+ ry="260"
+ fill="#8b0000"
+ opacity=".07"
+ filter="url(#glow)"
+/>
+
+  <!-- ========================================================= -->
+
+  <!-- FRAME                                                      -->
+
+  <!-- ========================================================= -->
+
+  <g clip-path="url(#screen)">
+
+```
+<!-- Outer frame -->
+<rect
+  x="18"
+  y="18"
+  width="1564"
+  height="684"
+  rx="12"
+  fill="none"
+  stroke="#8b0000"
+  stroke-width="1"
+  opacity=".7"
+/>
+
+<!-- Inner frame -->
+<rect
+  x="31"
+  y="31"
+  width="1538"
+  height="658"
+  rx="8"
+  fill="none"
+  stroke="#ff2020"
+  stroke-width="1"
+  opacity=".18"
+/>
+
+<!-- Moving scanline -->
+<rect
+  x="0"
+  y="-30"
+  width="1600"
+  height="3"
+  fill="#ff2020"
+  opacity=".18"
+  class="scanMove"
+/>
+
+<!-- Scanlines -->
+<rect
+  x="18"
+  y="18"
+  width="1564"
+  height="684"
+  fill="url(#scanlines)"
+/>
+
+<!-- ======================================================= -->
+<!-- TOP HUD                                                  -->
+<!-- ======================================================= -->
+
+<g class="mono">
+
+  <text
+    x="62"
+    y="73"
+    font-size="14"
+    fill="#ff3030"
+    class="flicker"
+  >
+    SYSTEM // ONLINE
+  </text>
+
+  <circle
+    cx="48"
+    cy="68"
+    r="4"
+    fill="#ff2020"
+    class="blink"
+  />
+
+  <text
+    x="800"
+    y="73"
+    text-anchor="middle"
+    font-size="13"
+    fill="#777"
+  >
+    ALJUDAN // DIGITAL FRONTIER
+  </text>
+
+  <text
+    x="1538"
+    y="73"
+    text-anchor="end"
+    font-size="14"
+    fill="#ff3030"
+  >
+    SEC_LEVEL: RED
+  </text>
+
+  <line
+    x1="48"
+    y1="91"
+    x2="1552"
+    y2="91"
+    stroke="url(#line)"
+    stroke-width="1"
+  />
+
+</g>
+
+<!-- ======================================================= -->
+<!-- SIDE HUD                                                  -->
+<!-- ======================================================= -->
+
+<g class="mono" fill="#555" font-size="10">
+
+  <text x="52" y="155">SYS.01</text>
+  <text x="52" y="175">NODE://VOID</text>
+  <text x="52" y="195">PORT://404</text>
+  <text x="52" y="215">LINK://RED</text>
+
+  <text x="1548" y="155" text-anchor="end">SIGNAL</text>
+  <text x="1548" y="175" text-anchor="end" fill="#ff2020">████████</text>
+  <text x="1548" y="195" text-anchor="end">0xFF 0x04</text>
+  <text x="1548" y="215" text-anchor="end">ENCRYPTED</text>
+
+</g>
+
+<!-- ======================================================= -->
+<!-- CITY SILHOUETTE                                          -->
+<!-- ======================================================= -->
+
+<g opacity=".65">
+
+  <path
+    d="
+    M0 570
+    L0 500
+    L55 500
+    L55 525
+    L90 525
+    L90 470
+    L125 470
+    L125 510
+    L165 510
+    L165 445
+    L200 445
+    L200 520
+    L245 520
+    L245 475
+    L280 475
+    L280 535
+    L325 535
+    L325 455
+    L360 455
+    L360 515
+    L405 515
+    L405 430
+    L440 430
+    L440 525
+    L490 525
+    L490 475
+    L525 475
+    L525 510
+    L570 510
+    L570 455
+    L610 455
+    L610 535
+    L650 535
+    L650 480
+    L690 480
+    L690 515
+    L730 515
+    L730 450
+    L770 450
+    L770 525
+    L815 525
+    L815 465
+    L850 465
+    L850 510
+    L895 510
+    L895 440
+    L930 440
+    L930 530
+    L975 530
+    L975 480
+    L1010 480
+    L1010 515
+    L1055 515
+    L1055 450
+    L1090 450
+    L1090 520
+    L1130 520
+    L1130 465
+    L1170 465
+    L1170 530
+    L1210 530
+    L1210 475
+    L1250 475
+    L1250 510
+    L1295 510
+    L1295 440
+    L1330 440
+    L1330 525
+    L1370 525
+    L1370 465
+    L1410 465
+    L1410 510
+    L1450 510
+    L1450 455
+    L1490 455
+    L1490 525
+    L1530 525
+    L1530 480
+    L1600 480
+    L1600 720
+    L0 720
+    Z
+    "
+    fill="#030303"
+  />
+
+  <!-- windows -->
+  <g fill="#9b0000" opacity=".25">
+
+    <rect x="105" y="490" width="5" height="12"/>
+    <rect x="180" y="462" width="5" height="12"/>
+    <rect x="340" y="470" width="5" height="12"/>
+    <rect x="420" y="450" width="5" height="12"/>
+    <rect x="505" y="492" width="5" height="12"/>
+    <rect x="590" y="470" width="5" height="12"/>
+    <rect x="675" y="492" width="5" height="12"/>
+    <rect x="760" y="462" width="5" height="12"/>
+    <rect x="840" y="480" width="5" height="12"/>
+    <rect x="915" y="460" width="5" height="12"/>
+    <rect x="995" y="492" width="5" height="12"/>
+    <rect x="1075" y="470" width="5" height="12"/>
+    <rect x="1160" y="482" width="5" height="12"/>
+    <rect x="1240" y="492" width="5" height="12"/>
+    <rect x="1315" y="455" width="5" height="12"/>
+    <rect x="1395" y="480" width="5" height="12"/>
+    <rect x="1475" y="470" width="5" height="12"/>
+
+  </g>
+</g>
+
+<!-- ======================================================= -->
+<!-- CENTRAL AURA                                              -->
+<!-- ======================================================= -->
+
+<circle
+  cx="800"
+  cy="370"
+  r="210"
+  fill="none"
+  stroke="#8b0000"
+  stroke-width="1"
+  opacity=".12"
+  class="pulse"
+/>
+
+<circle
+  cx="800"
+  cy="370"
+  r="170"
+  fill="none"
+  stroke="#ff2020"
+  stroke-width="1"
+  stroke-dasharray="3 16"
+  opacity=".25"
+  class="pulse"
+/>
+
+<!-- ======================================================= -->
+<!-- ANIME / CYBER SILHOUETTE                                  -->
+<!-- ======================================================= -->
+
+<g class="float" opacity=".96">
+
+  <!-- coat/body -->
+  <path
+    d="
+    M665 540
+    C670 475 690 435 725 410
+    C745 396 755 378 760 350
+    L840 350
+    C845 378 855 396 875 410
+    C910 435 930 475 935 540
+    Z
+    "
+    fill="#050505"
+    stroke="#a00000"
+    stroke-width="2"
+  />
+
+  <!-- head -->
+  <path
+    d="
+    M758 275
+    C758 235 780 205 800 205
+    C820 205 842 235 842 275
+    C842 315 825 342 800 342
+    C775 342 758 315 758 275
+    Z
+    "
+    fill="#050505"
+    stroke="#ff2020"
+    stroke-width="2"
+  />
+
+  <!-- hair -->
+  <path
+    d="
+    M758 278
+    L742 255
+    L750 220
+    L770 188
+    L780 218
+    L798 178
+    L810 215
+    L838 185
+    L834 225
+    L856 212
+    L846 258
+    L840 282
+    L825 245
+    L805 262
+    L790 235
+    L772 270
+    Z
+    "
+    fill="#080808"
+    stroke="#a00000"
+    stroke-width="2"
+  />
+
+  <!-- face shadow -->
+  <path
+    d="
+    M768 270
+    C780 250 820 250 832 270
+    L830 305
+    C815 328 785 328 770 305
+    Z
+    "
+    fill="#0b0b0b"
+  />
+
+  <!-- eyes -->
+  <path
+    d="M775 278 L793 282"
+    stroke="#ff2020"
+    stroke-width="4"
+    stroke-linecap="round"
+    filter="url(#smallGlow)"
+  />
+
+  <path
+    d="M807 282 L825 278"
+    stroke="#ff2020"
+    stroke-width="4"
+    stroke-linecap="round"
+    filter="url(#smallGlow)"
+  />
+
+  <!-- scarf -->
+  <path
+    d="
+    M760 330
+    C780 345 820 345 840 330
+    L852 362
+    C830 375 770 375 748 362
+    Z
+    "
+    fill="#650000"
+    opacity=".8"
+  />
+
+  <!-- coat highlights -->
+  <path
+    d="M725 415 L690 535"
+    stroke="#ff2020"
+    stroke-width="2"
+    opacity=".6"
+  />
+
+  <path
+    d="M875 415 L910 535"
+    stroke="#ff2020"
+    stroke-width="2"
+    opacity=".6"
+  />
+
+  <path
+    d="M760 375 L800 540 L840 375"
+    fill="none"
+    stroke="#650000"
+    stroke-width="1"
+    opacity=".7"
+  />
+
+  <!-- shoulder lines -->
+  <path
+    d="M710 420 L760 390"
+    stroke="#ff2020"
+    stroke-width="1"
+    opacity=".7"
+  />
+
+  <path
+    d="M890 420 L840 390"
+    stroke="#ff2020"
+    stroke-width="1"
+    opacity=".7"
+  />
+
+</g>
+
+<!-- ======================================================= -->
+<!-- MAIN TITLE                                                -->
+<!-- ======================================================= -->
+
+<g class="flicker">
+
+  <!-- red glitch layer -->
+  <text
+    x="800"
+    y="315"
+    text-anchor="middle"
+    font-size="106"
+    class="title"
+    fill="#ff2020"
+    opacity=".35"
+    transform="translate(-7 0)"
+    class="glitchA"
+  >
+    ALJUDAN
+  </text>
+
+  <!-- blue/black ghost -->
+  <text
+    x="800"
+    y="315"
+    text-anchor="middle"
+    font-size="106"
+    class="title"
+    fill="#5c0000"
+    opacity=".55"
+    transform="translate(7 0)"
+    class="glitchB"
+  >
+    ALJUDAN
+  </text>
+
+  <!-- main -->
+  <text
+    x="800"
+    y="315"
+    text-anchor="middle"
+    font-size="106"
+    class="title"
+    fill="#f2f2f2"
+  >
+    ALJUDAN
+  </text>
+
+  <!-- red underline -->
+  <rect
+    x="540"
+    y="337"
+    width="520"
+    height="2"
+    fill="url(#line)"
+  />
+
+</g>
+
+<!-- ======================================================= -->
+<!-- 404 LABEL                                                 -->
+<!-- ======================================================= -->
+
+<g class="mono">
+
+  <text
+    x="800"
+    y="382"
+    text-anchor="middle"
+    font-size="20"
+    fill="#ff2020"
+    letter-spacing="8"
+  >
+    404 // ENTER THE VOID
+  </text>
+
+  <text
+    x="800"
+    y="410"
+    text-anchor="middle"
+    font-size="11"
+    fill="#777"
+    letter-spacing="4"
+  >
+    DIGITAL FRONTIER // NO SIGNAL // STILL ALIVE
+  </text>
+
+</g>
+
+<!-- ======================================================= -->
+<!-- PARTICLES                                                 -->
+<!-- ======================================================= -->
+
+<g fill="#ff2020">
+
+  <circle cx="410" cy="570" r="2" class="particle"/>
+  <circle cx="470" cy="610" r="1.5" class="particle"/>
+  <circle cx="540" cy="550" r="2" class="particle"/>
+  <circle cx="610" cy="620" r="1" class="particle"/>
+  <circle cx="990" cy="580" r="2" class="particle"/>
+  <circle cx="1060" cy="620" r="1.5" class="particle"/>
+  <circle cx="1130" cy="560" r="2" class="particle"/>
+  <circle cx="1200" cy="610" r="1" class="particle"/>
+  <circle cx="1300" cy="570" r="2" class="particle"/>
+
+</g>
+
+<!-- ======================================================= -->
+<!-- BOTTOM HUD                                                -->
+<!-- ======================================================= -->
+
+<line
+  x1="48"
+  y1="625"
+  x2="1552"
+  y2="625"
+  stroke="url(#line)"
+  stroke-width="1"
+/>
+
+<g class="mono">
+
+  <text
+    x="62"
+    y="657"
+    font-size="12"
+    fill="#777"
+  >
+    SYS.LOC //
+    <tspan fill="#ff2020">RED_SECTOR</tspan>
+  </text>
+
+  <text
+    x="800"
+    y="657"
+    text-anchor="middle"
+    font-size="12"
+    fill="#777"
+  >
+    CONNECTION:
+    <tspan fill="#ff2020"> ESTABLISHED</tspan>
+  </text>
+
+  <text
+    x="1538"
+    y="657"
+    text-anchor="end"
+    font-size="12"
+    fill="#777"
+  >
+    ACCESS:
+    <tspan fill="#ff2020"> GRANTED</tspan>
+  </text>
+
+</g>
+
+<!-- Corner decorations -->
+
+<path
+  d="M48 120V105H63"
+  fill="none"
+  stroke="#ff2020"
+  stroke-width="2"
+  opacity=".7"
+/>
+
+<path
+  d="M1552 120V105H1537"
+  fill="none"
+  stroke="#ff2020"
+  stroke-width="2"
+  opacity=".7"
+/>
+
+<path
+  d="M48 600V615H63"
+  fill="none"
+  stroke="#ff2020"
+  stroke-width="2"
+  opacity=".7"
+/>
+
+<path
+  d="M1552 600V615H1537"
+  fill="none"
+  stroke="#ff2020"
+  stroke-width="2"
+  opacity=".7"
+/>
+```
+
+  </g>
+
+</svg>
