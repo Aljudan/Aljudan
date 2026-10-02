@@ -72,63 +72,55 @@ Focus
 
 ---
 
-## `featured_projects`
+## `what_i_do`
 
-### 🔴 ERP — Offline-First
+<table>
+<tr>
 
-A web-based ERP application focused on **offline-first architecture**, multi-tenant systems, and data synchronization.
+<td width="33%" valign="top">
 
-**Focus**
+### 🌐 Web Development
 
-```text
-Authentication
-Multi-Tenant Architecture
-Row Level Security
-Database Design
-Offline Data
-Data Synchronization
-```
+Building web applications while strengthening fundamentals in:
 
-<a href="https://github.com/Aljudan/erp-powersync">
-  <img src="https://img.shields.io/badge/View%20Repository-ERP%20Offline--First-ff3b3b?style=flat-square&logo=github" alt="ERP Repository">
-</a>
+* Frontend
+* Backend
+* REST APIs
+* Databases
+* Authentication
 
----
+</td>
 
-### 🔴 PeminjamanAlat
+<td width="33%" valign="top">
 
-A web application for managing equipment rentals and borrowing.
+### 🐧 Linux
 
-**Focus**
+Working with Linux as my primary learning environment.
 
-```text
-CRUD
-Authentication
-Database Relationships
-Rental Management
-Web Application Fundamentals
-```
+* CLI
+* Shell
+* Git
+* System Administration
+* Troubleshooting
 
-<a href="https://github.com/Aljudan/PeminjamanAlat">
-  <img src="https://img.shields.io/badge/View%20Repository-PeminjamanAlat-ff3b3b?style=flat-square&logo=github" alt="PeminjamanAlat Repository">
-</a>
+</td>
 
----
+<td width="33%" valign="top">
 
-### 🔴 Cyber Security Labs
+### 🔐 Cyber Security
 
-A collection of notes, exercises, and experiments from legal cybersecurity learning environments.
+Learning security through controlled and legal environments.
 
-**Focus**
+* Networking
+* Enumeration
+* Web Security
+* CTF
+* Vulnerability Analysis
 
-```text
-Linux
-Networking
-Enumeration
-Web Security
-CTF
-Vulnerability Analysis
-```
+</td>
+
+</tr>
+</table>
 
 ---
 
