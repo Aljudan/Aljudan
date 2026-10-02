@@ -1,216 +1,258 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 420" width="1600" height="420">
-
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 650">
   <defs>
+    <radialGradient id="space" cx="50%" cy="45%" r="70%">
+      <stop offset="0" stop-color="#180008"/>
+      <stop offset=".45" stop-color="#080004"/>
+      <stop offset="1" stop-color="#010101"/>
+    </radialGradient>
 
 ```
-<radialGradient id="void">
-  <stop offset="0" stop-color="#45000f"/>
-  <stop offset=".5" stop-color="#100003"/>
-  <stop offset="1" stop-color="#020202"/>
-</radialGradient>
+<linearGradient id="red" x1="0" y1="0" x2="1" y2="0">
+  <stop offset="0" stop-color="#700016"/>
+  <stop offset=".5" stop-color="#ff003c"/>
+  <stop offset="1" stop-color="#700016"/>
+</linearGradient>
 
 <filter id="glow">
-  <feGaussianBlur stdDeviation="5" result="b"/>
+  <feGaussianBlur stdDeviation="6" result="blur"/>
   <feMerge>
-    <feMergeNode in="b"/>
+    <feMergeNode in="blur"/>
     <feMergeNode in="SourceGraphic"/>
   </feMerge>
 </filter>
 
+<filter id="soft">
+  <feGaussianBlur stdDeviation="25"/>
+</filter>
+
+<pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+  <path d="M50 0H0V50"
+        fill="none"
+        stroke="#ff003c"
+        stroke-opacity=".07"/>
+</pattern>
+
 <style>
-  .m {
-    font-family:"Courier New",monospace;
-    letter-spacing:4px;
-  }
-
-  .r { fill:#ff1744; }
-  .w { fill:#eeeeee; }
-  .d { fill:#6b1a2c; }
-
-  .rotate {
-    transform-box:fill-box;
-    transform-origin:center;
-    animation:rotate 15s linear infinite;
+  .spin {
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: spin 18s linear infinite;
   }
 
   .reverse {
-    transform-box:fill-box;
-    transform-origin:center;
-    animation:reverse 9s linear infinite;
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: spin 12s linear infinite reverse;
+  }
+
+  .float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .flicker {
+    animation: flicker 2.5s steps(2,end) infinite;
   }
 
   .blink {
-    animation:blink 2s infinite;
+    animation: blink 1.2s steps(2,end) infinite;
   }
 
-  @keyframes rotate {
-    from { transform:rotate(0deg); }
-    to { transform:rotate(360deg); }
+  @keyframes spin {
+    to { transform: rotate(360deg); }
   }
 
-  @keyframes reverse {
-    from { transform:rotate(360deg); }
-    to { transform:rotate(0deg); }
+  @keyframes float {
+    50% { transform: translateY(-10px); }
+  }
+
+  @keyframes flicker {
+    0%,100% { opacity: 1; }
+    48% { opacity: .75; }
+    50% { opacity: .25; }
+    52% { opacity: .9; }
   }
 
   @keyframes blink {
-    0%,45%,100% {opacity:1;}
-    47%,49% {opacity:.15;}
+    50% { opacity: .2; }
+  }
+
+  text {
+    font-family: monospace;
+    letter-spacing: 2px;
   }
 </style>
 ```
 
   </defs>
 
-  <rect width="1600" height="420" fill="#020202"/>
+  <!-- BACKGROUND -->
 
-<rect x="20" y="20" width="1560" height="380"
-     fill="url(#void)"
-     stroke="#4c0917"/>
+  <rect width="1600" height="650" fill="url(#space)"/>
+  <rect width="1600" height="650" fill="url(#grid)"/>
 
-  <!-- LEFT -->
+  <!-- RED ATMOSPHERE -->
 
-  <g transform="translate(80 85)">
-    <text class="m r" font-size="16">TRANSMISSION</text>
+<circle cx="800" cy="320" r="260"
+       fill="#ff003c"
+       opacity=".08"
+       filter="url(#soft)"/>
+
+  <!-- FRAME -->
+
+<rect x="18" y="18" width="1564" height="614"
+     fill="none"
+     stroke="#ff003c"
+     stroke-opacity=".45"/>
+
+<path d="M18 80H70M18 80V30
+        M1530 80H1582M1582 80V30
+        M18 570H70M18 570V620
+        M1530 570H1582M1582 570V620"
+     fill="none"
+     stroke="#ff003c"
+     stroke-width="3"/>
+
+  <!-- HEADER -->
+
+<text x="60" y="65"
+     fill="#ff003c"
+     font-size="18"
+     font-weight="bold">
+VOID_DATABASE </text>
+
+<text x="1540" y="65"
+     text-anchor="end"
+     fill="#666"
+     font-size="12">
+FILE://NULL/ALJUDAN </text>
+
+  <!-- CENTRAL CORE -->
+
+  <g transform="translate(800 325)" class="float">
 
 ```
-<text y="45" class="m d" font-size="10">
-  CHANNEL
+<circle r="210"
+        fill="none"
+        stroke="#ff003c"
+        stroke-opacity=".1"
+        stroke-width="2"
+        class="spin"/>
+
+<circle r="175"
+        fill="none"
+        stroke="#ff003c"
+        stroke-opacity=".2"
+        stroke-width="2"
+        stroke-dasharray="8 16"
+        class="reverse"/>
+
+<circle r="135"
+        fill="none"
+        stroke="#ff003c"
+        stroke-opacity=".4"
+        stroke-width="1"
+        stroke-dasharray="2 9"
+        class="spin"/>
+
+<circle r="95"
+        fill="#050005"
+        stroke="#ff003c"
+        stroke-width="2"
+        filter="url(#glow)"/>
+
+<!-- PIRATE EMBLEM -->
+<path d="M-52-15
+         C-40-70 40-70 52-15
+         C48 40 20 65 0 70
+         C-20 65-48 40-52-15Z"
+      fill="#090106"
+      stroke="#ff003c"
+      stroke-width="3"/>
+
+<path d="M-38 15L38-45M-38-45L38 15"
+      stroke="#ff003c"
+      stroke-width="8"
+      stroke-linecap="round"/>
+
+<circle cx="-22" cy="-5" r="7"
+        fill="#ff003c"
+        class="blink"/>
+
+<circle cx="22" cy="-5" r="7"
+        fill="#ff003c"
+        class="blink"/>
+
+<path d="M-22 35Q0 48 22 35"
+      fill="none"
+      stroke="#ff003c"
+      stroke-width="3"/>
+
+<!-- RADAR -->
+<path d="M0-210V-175M0 175V210
+         M-210 0H-175M175 0H210"
+      stroke="#ff003c"
+      stroke-width="3"/>
+
+<circle r="8"
+        fill="#ff003c"
+        filter="url(#glow)"
+        class="flicker"/>
+```
+
+  </g>
+
+  <!-- LEFT LABELS -->
+
+  <g transform="translate(110 190)">
+    <text fill="#555" font-size="12">SUBJECT</text>
+    <text y="32" fill="#fff" font-size="20">ALJUDAN</text>
+
+```
+<text y="78" fill="#555" font-size="12">DESIGNATION</text>
+<text y="108" fill="#ff003c" font-size="15">
+  VOID_WALKER
 </text>
 
-<text x="180" y="45" class="m w" font-size="10">
-  404_VOID
+<text y="155" fill="#555" font-size="12">STATUS</text>
+<text y="185" fill="#fff" font-size="15">
+  <tspan class="blink">●</tspan> UNRESOLVED
 </text>
+```
 
-<text y="75" class="m d" font-size="10">
-  STATUS
-</text>
+  </g>
 
-<text x="180" y="75" class="m r" font-size="10">
-  CONNECTED
-</text>
+  <!-- RIGHT LABELS -->
 
-<text y="105" class="m d" font-size="10">
-  ENCRYPTION
-</text>
+  <g transform="translate(1180 190)">
+    <text fill="#555" font-size="12">SECTOR</text>
+    <text y="32" fill="#fff" font-size="20">404</text>
 
-<text x="180" y="105" class="m w" font-size="10">
+```
+<text y="78" fill="#555" font-size="12">THREAT</text>
+<text y="108" fill="#ff003c" font-size="15">
   UNKNOWN
 </text>
 
-<line y1="135" x2="330" y2="135"
-      stroke="#5a0a1c"/>
-
-<text y="165" class="m d" font-size="10">
-  MESSAGE:
-</text>
-
-<text y="195" class="m r" font-size="13">
-  KEEP MOVING.
+<text y="155" fill="#555" font-size="12">SIGNAL</text>
+<text y="185" fill="#fff" font-size="15">
+  ██████████ 100%
 </text>
 ```
 
   </g>
 
-  <!-- CENTER CORE -->
+  <!-- BOTTOM MESSAGE -->
 
-  <g transform="translate(800 210)">
+<text x="800" y="565"
+     text-anchor="middle"
+     fill="#777"
+     font-size="13">
+THERE IS NO MAP FOR THE VOID. </text>
 
-```
-<circle r="130"
-        fill="none"
-        stroke="#ff1744"
-        stroke-opacity=".12"
-        stroke-width="1"
-        class="rotate"/>
-
-<circle r="100"
-        fill="none"
-        stroke="#ff1744"
-        stroke-opacity=".2"
-        stroke-dasharray="5 12"
-        class="reverse"/>
-
-<circle r="68"
-        fill="none"
-        stroke="#ff1744"
-        stroke-opacity=".25"/>
-
-<circle r="20"
-        fill="#ff1744"
-        opacity=".15"
-        filter="url(#glow)"
-        class="blink"/>
-
-<path d="M-55 0 H55 M0 -55 V55"
-      stroke="#ff1744"
-      stroke-opacity=".3"/>
-
-<circle r="5"
-        fill="#ff1744"
-        filter="url(#glow)"/>
-```
-
-  </g>
-
-  <!-- RIGHT -->
-
-  <g transform="translate(1120 85)">
-    <text class="m r" font-size="16">VOID_LOG</text>
-
-```
-<text y="45" class="m d" font-size="10">
-  ENTRY
-</text>
-
-<text x="160" y="45" class="m w" font-size="10">
-  001
-</text>
-
-<text y="75" class="m d" font-size="10">
-  SIGNAL
-</text>
-
-<text x="160" y="75" class="m r" font-size="10">
-  FOUND
-</text>
-
-<text y="105" class="m d" font-size="10">
-  ENTITY
-</text>
-
-<text x="160" y="105" class="m w" font-size="10">
-  ALJUDAN
-</text>
-
-<line y1="135" x2="330" y2="135"
-      stroke="#5a0a1c"/>
-
-<text y="165" class="m d" font-size="10">
-  NEXT:
-</text>
-
-<text y="195" class="m r" font-size="13">
-  DISCOVER.
-</text>
-```
-
-  </g>
-
-  <!-- FOOT -->
-
-<line x1="80" y1="350" x2="1520" y2="350"
-     stroke="#4d0918"/>
-
-<text x="80" y="375"
-     class="m d"
-     font-size="9">
-ALJUDAN // SYSTEM TERMINAL </text>
-
-<text x="1520" y="375"
-     text-anchor="end"
-     class="m r"
-     font-size="9">
-END_OF_TRANSMISSION </text>
-
-</svg>
+<text x="800" y="600"
+     text-anchor="middle"
+     fill="#ff003c"
+     font-size="18"
+     font-weight="bold"
+     class="flicker">
+KEEP MOVING. </text> </svg>

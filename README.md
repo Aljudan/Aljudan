@@ -1,15 +1,15 @@
 <div align="center">
-  <img src="./assets/hero.svg" width="100%" alt="ALJUDAN — 404 ENTER THE VOID">
+  <img src="./assets/hero.svg" width="100%" alt="ALJUDAN - ENTER THE VOID">
 
-  <br>
+<br><br>
 
-  <img src="./assets/status.svg" width="100%" alt="SYSTEM STATUS">
+  <img src="./assets/status.svg" width="100%" alt="System Status">
 
-  <br>
+<br><br>
 
-  <img src="./assets/void.svg" width="100%" alt="THE VOID">
+  <img src="./assets/void.svg" width="100%" alt="The Void">
 
-  <br>
+<br><br>
 
-  <img src="./assets/footer.svg" width="100%" alt="ALJUDAN SYSTEM FOOTER">
+  <img src="./assets/footer.svg" width="100%" alt="End of Transmission">
 </div>

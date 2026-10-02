@@ -1,70 +1,84 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 180" width="1600" height="180">
-
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 260">
   <defs>
-    <linearGradient id="line">
-      <stop offset="0" stop-color="#ff1744" stop-opacity="0"/>
-      <stop offset=".5" stop-color="#ff1744"/>
-      <stop offset="1" stop-color="#ff1744" stop-opacity="0"/>
+    <linearGradient id="line" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ff003c" stop-opacity="0"/>
+      <stop offset=".5" stop-color="#ff003c"/>
+      <stop offset="1" stop-color="#ff003c" stop-opacity="0"/>
     </linearGradient>
 
 ```
+<filter id="glow">
+  <feGaussianBlur stdDeviation="5" result="blur"/>
+  <feMerge>
+    <feMergeNode in="blur"/>
+    <feMergeNode in="SourceGraphic"/>
+  </feMerge>
+</filter>
+
 <style>
-  .m {
-    font-family:"Courier New",monospace;
-    letter-spacing:4px;
+  .blink {
+    animation: blink 1.5s steps(2,end) infinite;
   }
 
-  .r { fill:#ff1744; }
-  .d { fill:#64182a; }
-
-  .blink {
-    animation:blink 2s infinite;
+  .pulse {
+    animation: pulse 2s ease-in-out infinite;
   }
 
   @keyframes blink {
-    0%,45%,100% {opacity:1;}
-    47%,49% {opacity:.1;}
+    50% { opacity: .25; }
+  }
+
+  @keyframes pulse {
+    50% { opacity: .45; }
+  }
+
+  text {
+    font-family: monospace;
+    letter-spacing: 3px;
   }
 </style>
 ```
 
   </defs>
 
-  <rect width="1600" height="180" fill="#020202"/>
+  <rect width="1600" height="260" fill="#020202"/>
 
-<line x1="80" y1="40"
-     x2="1520" y2="40"
+<line x1="100" y1="70" x2="1500" y2="70"
      stroke="url(#line)"
-     stroke-width="2"/>
+     stroke-width="2"
+     filter="url(#glow)"/>
 
-<text x="800" y="85"
+<text x="800" y="125"
      text-anchor="middle"
-     class="m r"
-     font-size="17">
-ALJUDAN // END OF TRANSMISSION </text>
+     fill="#ff003c"
+     font-size="28"
+     font-weight="bold"
+     class="pulse">
+ALJUDAN </text>
 
-<text x="800" y="115"
+<text x="800" y="158"
      text-anchor="middle"
-     class="m d"
-     font-size="10">
-404 // VOID // SYSTEM ONLINE </text>
+     fill="#555"
+     font-size="11">
+CONNECTION TERMINATED // SIGNAL LOST // VOID REMAINS </text>
 
-<circle cx="710" cy="150"
-       r="4"
-       fill="#ff1744"
+<text x="800" y="205"
+     text-anchor="middle"
+     fill="#777"
+     font-size="11">
+404 // END OF TRANSMISSION </text>
+
+<circle cx="750" cy="205" r="3"
+       fill="#ff003c"
        class="blink"/>
 
-<text x="730" y="154"
-     class="m d"
-     font-size="9">
-CONNECTION TERMINATED </text>
+<circle cx="850" cy="205" r="3"
+       fill="#ff003c"
+       class="blink"/>
 
-<line x1="80" y1="145"
-     x2="600" y2="145"
-     stroke="#3c0a16"/>
-
-<line x1="1000" y1="145"
-     x2="1520" y2="145"
-     stroke="#3c0a16"/>
-
-</svg>
+<text x="800" y="235"
+     text-anchor="middle"
+     fill="#ff003c"
+     font-size="9"
+     class="blink">
+● SYSTEM OFFLINE </text> </svg>
