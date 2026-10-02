@@ -201,7 +201,7 @@ TypeScript ████░░░░░░ 40%
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/▓▓▓_CONTINUE_?_▓▓▓-YES_▶-FF0033?style=for-the-badge&labelColor=000000" alt="continue"/>
+  <img src="https://img.shields.io/badge/▓▓▓_CONTINUE_%3F_▓▓▓-YES_▶-FF0033?style=for-the-badge&labelColor=000000" alt="continue"/>
 </p>
 
 <br/>
